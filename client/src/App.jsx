@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import LogoutButton from './components/LogoutButton';
 import { login, signup} from './components/AuthState';
 import Header from "./components/Header";
@@ -8,7 +8,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState("");
-  const [oassword, setPassword] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -33,7 +33,7 @@ function App() {
   };
 
   return (
-    < div className="min-h-screen bg-pink-900 text-white">
+    <div className="min-h-screen bg-pink-900 text-white">
       {user ? (
         <div>
           <Header onLogout={handleLogout} />
@@ -56,4 +56,4 @@ function App() {
 
 }
 
-export default App
+export default App;
