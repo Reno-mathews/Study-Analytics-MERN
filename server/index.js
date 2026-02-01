@@ -17,8 +17,8 @@ app.get("/users", async (req, res) => {
         const result = await pool.query("SELECT * FROM users");
         res.json(result.rows);
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "Database error" });
+        console.error("DB ERROR: ",err.message);
+        res.status(500).json({ error: err.message });
     }
 });
 
