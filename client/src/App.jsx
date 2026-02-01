@@ -3,6 +3,7 @@ import LogoutButton from './components/LogoutButton';
 import { login, signup} from './components/AuthState';
 import Header from "./components/Header";
 import Board from './components/Board';
+import AuthForm from './components/AuthForm';
 function App() {
   const [user, setUser] = useState(null);
   const [isSignUp, setIsSignUp] = useState(false);
@@ -21,7 +22,37 @@ function App() {
     setUser(user);
   };
 
-  const handleSignup = async
+  const handleSignup = async (email,password) => {
+    const user = await signup(email, password);
+    setUser(user);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+  };
+
+  return (
+    < div className="min-h-screen bg-pink-900 text-white">
+      {user ? (
+        <div>
+          <Header onLogout={handleLogout} />
+          <Board />
+        </div>  
+      ) : (
+        <AuthForm
+          isSignUp={isSignUp}
+          setIsSignUp={setIsSignUp}
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+          onLogin={handleLogin}
+          onSignUp={handleSignup}
+        />
+      )}
+    </div>
+  );
 
 }
 
