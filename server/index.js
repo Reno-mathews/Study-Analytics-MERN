@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const { pool } = require("./db");
-
+const 
 const app = express();
 
 app.use(cors());
@@ -42,8 +42,15 @@ app.post("/signup", async (req, res) => {
             process.env.JWT_SECRET,
             { expiresIn: "1d"}
         );
-        
-    }
+
+        res.status(201).json({ token });
+    } catch (err) {
+        if (err.code === "23505") {
+            return res.status(409).json({ error: "Email already exists" });
+        }
+        console.error(err);
+        res.status(500).json({ error: "Signup failed "});
+        }
 })
 
 app.listen(5000, () => {
