@@ -18,3 +18,19 @@ exports.getSessions = async (req, res) => {
         res.status(500).json({ error: "Failed to fetch sessions" });
     }
 };
+
+// POST /sessions 
+// Create new session
+
+exports.createSession = async (req, res) => {
+    const { subject, duration, session_date } = req.body;
+    const userId = req.user.userId;
+
+    if (!subject || !duration || !session_date) {
+        return res.status(400).json({ error: "All fields required" });
+    }
+
+    try {
+        const result = await pool.query()
+    }
+}
