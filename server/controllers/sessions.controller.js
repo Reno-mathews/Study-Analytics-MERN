@@ -31,6 +31,16 @@ exports.createSession = async (req, res) => {
     }
 
     try {
-        const result = await pool.query()
+        const result = await pool.query(
+            `INSERT INTO study_sessions (user_id, subject, duration, session_date)
+            VALUES ($1, $2, $3, $4)
+            RETURNING *`,
+            [userId, subject, duration, session_date]
+        );
+
+        res.status(201).json(result.rows[0]);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Failed to create session" });
     }
-}
+};
