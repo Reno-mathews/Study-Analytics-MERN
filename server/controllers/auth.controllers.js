@@ -18,7 +18,17 @@ exports.signup = async (req, res) => {
         );
 
         const token = jwt.sign(
-            
-        )
+            { userId: result.rows[0].id },
+            process.env.JWT_SECRET,
+            { expires: "7d"}
+        );
+
+        res.status(201).json({ token });
+    } catch (err) {
+        if (err.code === "23505") {
+            return res.status(409).json({ error: "Email already exists "});
+        }
+        console.error(err);
+        res.status(500).json({ error: "Signup failed" });
     }
-}
+};
