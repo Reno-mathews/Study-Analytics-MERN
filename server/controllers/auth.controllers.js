@@ -20,7 +20,7 @@ exports.signup = async (req, res) => {
         const token = jwt.sign(
             { userId: result.rows[0].id },
             process.env.JWT_SECRET,
-            { expires: "7d"}
+            { expiresIn: "7d"}
         );
 
         res.status(201).json({ token });
@@ -30,5 +30,48 @@ exports.signup = async (req, res) => {
         }
         console.error(err);
         res.status(500).json({ error: "Signup failed" });
+    }
+};
+
+// Login
+
+exports.login = async (req, res) => {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).json({ error: "Email and password required" });
+    }
+
+    try {
+        // Find user
+        const result = await pool.query(
+            "SELECT id, password FROM users WHERE email = $1",
+            [email]
+        );
+    if (result.rows.length === 0) {
+        return res.status(401).json({ error: "Invalid credentials" });
+    }
+
+    const user = result.rows[0];
+
+    // Comapre password
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+        return res.status(401).json({ error: "Invalid credentials" });
+    }
+
+    // Create token
+
+    const token = jwt.sign(
+        { userId: user.id },
+        process.env.JWT_SECRET,
+        { expires: "7d" }
+    );
+
+    // Return token
+    res.json({ token });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Login failed" });
     }
 };
