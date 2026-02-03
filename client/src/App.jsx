@@ -18,14 +18,24 @@ function App() {
   }, []);
 
   const handleLogin = async (email, password) => {
+    try {
     const user = await login(email, password);
     setUser(user);
+  } catch (err) {
+    console.error("LOGIN ERROR:", err.message);
+    alert(err.message);
+  }
   };
 
   const handleSignup = async (email,password) => {
-    const user = await signup(email, password);
-    setUser(user);
-  };
+    try {
+      const user = await signup(email, password);
+      setUser(user);
+  } catch(err) {
+    console.error("SIGNUP ERROR:", err.message);
+    alert(err.message);
+  }
+};
 
   const handleLogout = () => {
     localStorage.removeItem("token");
