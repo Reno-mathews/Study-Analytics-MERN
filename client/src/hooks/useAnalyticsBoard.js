@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchSession, createSession } from "../api/sessions";
+import { fetchSessions, createSession } from "../api/sessions";
 
 export const useAnalyticsBoard = () => {
     const [sessions, setSessions] = useState([]);

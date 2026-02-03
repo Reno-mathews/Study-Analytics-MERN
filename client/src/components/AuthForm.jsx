@@ -15,7 +15,7 @@ function AuthForm ({
                     { isSignUp ? "Create an account" : "Welcome back"}
                 </h2>
                 <p className="text-center text-gray-400 mb-6">
-                    {isSignUp ? "Sign up to get started" : "Log in to your Kanban board"}
+                    {isSignUp ? "Sign up to get started" : "Log in to your Study Analytics board"}
                 </p>
 
                     <form 
