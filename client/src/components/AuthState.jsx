@@ -11,7 +11,7 @@ const login = async(email, password) => {
     const data = await res.json();
 
     if (!res.ok) {
-        throw new Error(data.message || "Login failed");
+        throw new Error(data.message || data.error || "Login failed");
     }
 
     localStorage.setItem("token", data.token);
@@ -29,7 +29,7 @@ const signup = async (email, password) => {
     const data = await res.json();
 
     if(!res.ok) {
-        throw new Error(data.message || "Signup failed");
+        throw new Error(data.message || data.error || "Signup failed");
     }
     localStorage.setItem("token", data.token);
     return { token:data.user};
