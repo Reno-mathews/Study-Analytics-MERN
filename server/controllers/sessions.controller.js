@@ -9,7 +9,7 @@ exports.getSessions = async (req, res) => {
 
         const result = await pool.query(
             "SELECT * FROM study_sessions WHERE user_id = $1 ORDER BY created_at DESC",
-        [userID]
+        [userId]
         );
 
         res.json(result.rows);
