@@ -24,6 +24,19 @@ function Board() {
             </div>
         ))
     )}
+
+    <button
+        onClick={() => 
+            addSession({
+                subject: "React",
+                duration: 45,
+                session_date: "2026-02-03",
+            })
+        }
+        className="mt-4 bg-blue-600 px-4 py-2 rounded"
+    >
+        Add test session
+    </button>
     </div>
     
 );
