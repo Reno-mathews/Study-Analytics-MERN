@@ -7,8 +7,11 @@ const authRoutes = require("./routes/auth.routes");
 
 const authMiddleware = require("./middleware/auth.middleware");
 
+const sessionsRoutes = require("./routes/sessions.routes");
+
 app.use(cors());
 app.use(express.json());
+app.use("/sessions", sessionsRoutes);
 
 app.get("/health", (req,res) => {
     res.json({ status: "ok" });
