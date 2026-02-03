@@ -15,7 +15,7 @@ const login = async(email, password) => {
     }
 
     localStorage.setItem("token", data.token);
-    return data.user;
+    return { token: data.user};
 }
 
 const signup = async (email, password) => {
@@ -32,7 +32,7 @@ const signup = async (email, password) => {
         throw new Error(data.message || "Signup failed");
     }
     localStorage.setItem("token", data.token);
-    return data.user;
+    return { token:data.user};
 };
 
 export { login, signup };
