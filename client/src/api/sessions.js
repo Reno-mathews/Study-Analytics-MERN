@@ -10,8 +10,7 @@ const getAuthHeader = () => {
 
 export const fetchSessions = async () => {
     const res = await fetch(`${API_URL}/sessions`, {
-        headers: getAuthHeader(), {
-            headers: getAuthHeader(), 
+        headers: getAuthHeader(),  
     });
 
     if (!res.ok) {
