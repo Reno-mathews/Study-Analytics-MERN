@@ -4,6 +4,11 @@ import { login, signup} from './components/AuthState';
 import Header from "./components/Header";
 import Board from './components/Board';
 import AuthForm from './components/AuthForm';
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Board from "./pages/Board";
+import Upgrade from "./pages/Upgrade";
+
 function App() {
   const [user, setUser] = useState(null);
   const [isSignUp, setIsSignUp] = useState(false);
