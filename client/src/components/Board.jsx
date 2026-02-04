@@ -10,9 +10,21 @@ import {
     ResponsiveContainer,
 } from "recharts";
 import { BarChart, Bar } from "recharts";
+import DashboardCard from "../components/DashboardCard";
 
 function Board() {
-    const { sessions, loading, error, addSession, dailyChartData, subjectChartData } = useAnalyticsBoard();
+    const { 
+        sessions,
+        loading, 
+        error, 
+        addSession, 
+        dailyChartData, 
+        subjectChartData,
+        totalMinutes,
+        sessionCount,
+        averageMinutes,
+        mostStudiedSubject,
+         } = useAnalyticsBoard();
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div className="text-red-500">{error}</div>;
@@ -20,6 +32,34 @@ function Board() {
     return (
     <div className="p-6">
         <h1 className="text-2xl font-bold mb-4">Study Analytics</h1>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 m-6">
+            <DashboardCard
+                title="Total Study Time"
+                value={`${totalMinutes} min`}
+            />
+
+            <DashboardCard
+                title="Sessions"
+                value={sessionCount}
+            />
+
+            <DashboardCard
+                title="Sessions"
+                value={sessionCount}
+            />
+
+            <DashboardCard
+                title="Avg / Session"
+                value={`${averageMinutes} min`}
+            />
+
+            <DashboardCard
+                title="Top Subject"
+                value={mostStudiedSubject}
+            />
+
+        </div>
 
         <div className="bg-gray-800 p-4 rounded mb-6">
             <h2 className="text-lg font-semibold mb-3">Daily Study Time</h2>
