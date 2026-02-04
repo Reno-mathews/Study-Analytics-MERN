@@ -61,7 +61,7 @@ function Board() {
 
         </div>
 
-        <div className="bg-gray-800 p-4 rounded mb-6">
+        <div className="bg-blue-800 p-4 rounded mb-6">
             <h2 className="text-lg font-semibold mb-3">Daily Study Time</h2>
 
             <ResponsiveContainer width="100%" height={250}>

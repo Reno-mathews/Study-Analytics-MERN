@@ -43,7 +43,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-pink-900 text-white">
+    <div className="min-h-screen bg-gray-700 text-white">
       {user ? (
         <div>
           <Header onLogout={handleLogout} />
