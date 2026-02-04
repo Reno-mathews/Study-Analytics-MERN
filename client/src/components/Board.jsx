@@ -1,8 +1,18 @@
 import { useState } from "react";
 import { useAnalyticsBoard } from "../hooks/useAnalyticsBoard";
+import {
+    LineChart,
+    Line,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    ResponsiveContainer,
+} from "recharts";
+import { BarChart, Bar } from "recharts";
 
 function Board() {
-    const { sessions, loading, error, addSession } = useAnalyticsBoard();
+    const { sessions, loading, error, addSession, dailyChartData, subjectChartData } = useAnalyticsBoard();
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div className="text-red-500">{error}</div>;
@@ -10,6 +20,39 @@ function Board() {
     return (
     <div className="p-6">
         <h1 className="text-2xl font-bold mb-4">Study Analytics</h1>
+
+        <div className="bg-gray-800 p-4 rounded mb-6">
+            <h2 className="text-lg font-semibold mb-3">Daily Study Time</h2>
+
+            <ResponsiveContainer width="100%" height={250}>
+                <LineChart data={dailyChartData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="date" />
+                    <YAxis />
+                    <Tooltip />
+                    <Line
+                        type="monotone"
+                        dataKey="minutes"
+                        stroke="#3b82f6"
+                        strokeWidth={2}
+                    />
+                </LineChart>
+            </ResponsiveContainer>
+        </div>
+
+        <div className="bg-gray-800 p-4 rounded mb-6">
+            <h2 className="text-lg font-semibold mb-3">Time by Subject</h2>
+
+            <ResponsiveContainer width="100%" height={250}>
+                <BarChart data={subjectChartData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="subject" />
+                    <YAxis />
+                    <Tooltip />
+                    <Bar dataKey="minutes" fill="#22c55e" />
+                </BarChart>
+            </ResponsiveContainer>
+        </div>
 
         {sessions.length === 0 ? (
             <p>No sessions yet</p>

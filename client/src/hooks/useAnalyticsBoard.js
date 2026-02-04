@@ -26,10 +26,67 @@ export const useAnalyticsBoard = () => {
         setSessions((prev) => [...prev, newSession]);
     };
 
+    const dailyTotal = sessions.reduce((acc, session) => {
+        const date = new Date(session.session_date).toLocaleDateString();
+
+        acc[date] = (acc[date] || 0) + session.duration;
+        return acc;
+    }, {});
+
+    const dailyChartData = Object.entries(dailyTotal).map(
+        ([date, total]) => ({
+            date,
+            minutes: total,
+        })
+    );
+
+    const subjectTotals = sessions.reduce((acc, session) => {
+        acc[session.subject] =
+            (acc[session.subject] || 0) + session.duration;
+        return acc;
+    }, {});
+
+    const subjectChartData = Object.entries(subjectTotals).map(
+        ([subject, minutes]) => ({
+            subject,
+            minutes,
+        })
+    );
+
+    const totalMinutes = sessions.reduce(
+        (sum, s) => sum + s.duration,
+        0
+    );
+
+    const sessionCount = sessions.length;
+
+    const averageMinutes =
+        sessionCount === 0
+            ? 0
+            : Math.round(totalMinutes / sessionCount);
+    
+    const mostStudiedSubject = (() => {
+        if (sessions.length === 0) return "-";
+
+        const subjectTotals = sessions.reduce((acc, s) => {
+            acc[s.subject] = (acc[s.subject] || 0) + s.duration;
+            return acc;
+        }, {});
+    return Object.entries(subjectTotals).sort(
+        (a, b) => b[1] - a[1]
+    )[0][0];
+    }) ();
+
     return {
         sessions,
         loading,
         error,
         addSession,
+        dailyChartData,
+        subjectChartData,
+        totalMinutes,
+        sessionCount,
+        averageMinutes,
+        mostStudiedSubject,
     };
 };
