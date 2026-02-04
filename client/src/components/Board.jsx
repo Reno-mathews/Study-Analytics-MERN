@@ -100,16 +100,19 @@ function Board() {
         {sessions.length === 0 ? (
             <p>No sessions yet</p>
         ) : (
-            sessions.map((s) => (
+            <div className="bg-white border border-slate-200 rounded-lg divide-y">
+            {sessions.map((s) => (
             <div 
             key={s.id}
-            className="bg-gray-800 p-3 rounded mb-2">
-                <div><strong>{s.subject}</strong></div>
-                <div>{s.duration} minutes</div>
-                <div>{new Date(s.session_date).toLocaleDateString()}</div>
+            className="px-5 py-3 flex justify-between text-sm">
+                <div className="font-medium"><strong>{s.subject}</strong></div>
+                <div className="text-slate-500">{s.duration} minutes • {new Date(s.session_date).toLocaleDateString()}
+
+                </div>
             </div>
-        ))
-    )}
+            ))}
+        </div>
+)}
 
     <button
         onClick={() => 
