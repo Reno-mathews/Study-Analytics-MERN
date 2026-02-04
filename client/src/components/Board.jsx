@@ -35,7 +35,7 @@ function Board() {
     <div className="p-6">
         <h1 className="text-2xl font-bold mb-4">Study Analytics</h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 m-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             <DashboardCard
                 title="Total Study Time"
                 value={`${totalMinutes} min`}
@@ -63,20 +63,21 @@ function Board() {
 
         </div>
 
-        <div className="bg-blue-800 p-4 rounded mb-6">
-            <h2 className="text-lg font-semibold mb-3">Daily Study Time</h2>
+        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
+            <h2 className="text-base font-semibold mb-4">Daily Study Time</h2>
 
-            <ResponsiveContainer width="100%" height={250}>
+            <ResponsiveContainer width="100%" height={260}>
                 <LineChart data={dailyChartData}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="date" />
-                    <YAxis />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                    <XAxis dataKey="date" stroke="#64748b"/>
+                    <YAxis stroke="#64748b" />
                     <Tooltip />
                     <Line
                         type="monotone"
                         dataKey="minutes"
-                        stroke="#3b82f6"
+                        stroke="#2563eb"
                         strokeWidth={2}
+                        dot={false}
                     />
                 </LineChart>
             </ResponsiveContainer>
