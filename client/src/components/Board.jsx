@@ -125,7 +125,7 @@ function Board() {
             ))}
         </div>
 )}
-
+    <div className="flex jusitfy-end">
     <button
         onClick={() => 
             addSession({
@@ -134,14 +134,14 @@ function Board() {
                 session_date: "2026-02-03",
             })
         }
-        className="mt-4 bg-blue-600 px-4 py-2 rounded"
+        className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md text-sm font-medium transition"
     >
         Add test session
     </button>
     </div>
     </div>
     </div>
-    
+    </div>
 );
 }
 
