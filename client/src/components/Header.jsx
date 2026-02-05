@@ -23,7 +23,22 @@ function Header({ onLogout }) {
                             Upgrade
                         </Link>
                     </nav>
-                </div>
+
+                    {/* Center: Title */}
+                    <h1 className="text-lg font-semibold tracking-wide">
+                        Study Analytics
+                    </h1>
+
+                    {/* Right: Logout */}
+                    <button
+                        onClick={onLogout}
+                        className="text-sm bg-red-600 hover:bg-red-700 px-4 py-1.5 rounded-md font-medium transition"
+                    >
+                        Logout
+                    </button>                
+                    </div>
             </header>
-        )
+        );
 }
+
+export default Header;
