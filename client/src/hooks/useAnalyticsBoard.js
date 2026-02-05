@@ -5,6 +5,9 @@ export const useAnalyticsBoard = () => {
     const [sessions, setSessions] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [subject, setSubject] = useState("");
+    const [duration, setDuration] = useState("");
+    const [date,setDate] = useState("");
 
     useEffect(() => {
         const loadSessions = async () => {
