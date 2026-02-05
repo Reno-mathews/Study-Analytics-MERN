@@ -11,7 +11,7 @@ function Header({ onLogout }) {
         }`;
 
         return (
-            <header className="bg-slate-900 border-b border-slate-700">
+            <header className="bg-cyan-900 border-b border-slate-700">
                 <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
                     {/* Left: Navigation */}
@@ -32,7 +32,7 @@ function Header({ onLogout }) {
                     {/* Right: Logout */}
                     <button
                         onClick={onLogout}
-                        className=""
+                        className="text-sm border border-slate-600 px-4 py-1.5 rounded-md hover:bg-slate-800 transition"
                     >
                         Logout
                     </button>                
