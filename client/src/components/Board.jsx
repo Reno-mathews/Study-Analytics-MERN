@@ -84,17 +84,29 @@ function Board() {
         </div>
 
         <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8">
-            <h2 className="text-base font-semibold mb-4 text-slate-800">Time by Subject</h2>
+            <h2 className="text-base font-semibold mb-4 text-slate-800">
+                Time by Subject
+            </h2>
 
-            <ResponsiveContainer width="100%" height={250}>
-                <BarChart data={subjectChartData}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="subject" />
-                    <YAxis />
+            {subjectChartData.length <= 1 ? (
+                <p className="text-sm text-slate-500">
+                    Add more subjects to see a comparsion.
+                </p>
+            ) : (
+            <ResponsiveContainer width="100%" height={220}>
+                <BarChart data={subjectChartData} layout="vertical">
+                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                    <XAxis type="number" stroke="#64748b" />
+                    <YAxis 
+                        type="category"
+                        dataKey="subject"
+                        stroke="#64748b"
+                    />
                     <Tooltip />
-                    <Bar dataKey="minutes" fill="#22c55e" />
+                    <Bar dataKey="minutes" fill="#3b82f6" />
                 </BarChart>
             </ResponsiveContainer>
+            )}
         </div>
 
         {sessions.length === 0 ? (
