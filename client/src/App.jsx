@@ -5,8 +5,7 @@ import Header from "./components/Header";
 import Board from './components/Board';
 import AuthForm from './components/AuthForm';
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Board from "./pages/Board";
+import { Navigate, Routes, Route } from "react-router-dom";
 import Upgrade from "./pages/Upgrade";
 
 function App() {
@@ -47,28 +46,32 @@ function App() {
     setUser(null);
   };
 
-  return (
-    <div className="min-h-screen bg-gray-700 text-white">
-      {user ? (
-        <div>
-          <Header onLogout={handleLogout} />
-          <Board />
-        </div>  
-      ) : (
-        <AuthForm
-          isSignUp={isSignUp}
-          setIsSignUp={setIsSignUp}
-          email={email}
-          setEmail={setEmail}
-          password={password}
-          setPassword={setPassword}
-          onLogin={handleLogin}
-          onSignUp={handleSignup}
-        />
-      )}
-    </div>
-  );
+  if (!user) {
+    return (
+      <AuthForm 
+        isSignUp={isSignUp}
+        setIsSignUp={setIsSignUp}
+        email={email}
+        setEmail={setEmail}
+        password={password}
+        setPassword={setPassword}
+        onLogin={handleLogin}
+        onSignUp={handleSignup}
+      />
+    );
+  }
 
-}
+  return (
+    <>
+    <Header onLogut={handleLogout} />
+
+    <Routes>
+      <Route path="/" element={<Board />} />
+      <Route path="/upgrade" element={<Upgrade />} />
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
+    </>
+  ); 
+  }
 
 export default App;
