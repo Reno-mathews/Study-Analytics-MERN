@@ -109,6 +109,10 @@ function Board() {
             )}
         </div>
 
+        <div className="flex justify-end mb-6">
+            <button
+                onClick={() => setShowModal(true)}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md text-sm font-medium transition"
         {sessions.length === 0 ? (
             <p>No sessions yet</p>
         ) : (
