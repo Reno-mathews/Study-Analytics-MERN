@@ -11,7 +11,7 @@ function Header({ onLogout }) {
         }`;
 
         return (
-            <header className="bg-cyan-900 border-b border-slate-700">
+            <header className="bg-slate-900 border-b border-slate-700">
                 <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
                     {/* Left: Navigation */}
@@ -25,7 +25,7 @@ function Header({ onLogout }) {
                     </nav>
 
                     {/* Center: Title */}
-                    <h1 className="text-lg bg-white-800 font-semibold tracking-wide">
+                    <h1 className="text-lg bg-white-100 font-semibold tracking-wide">
                         Study Analytics
                     </h1>
 
