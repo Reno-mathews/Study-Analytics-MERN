@@ -25,7 +25,7 @@ function Header({ onLogout }) {
                     </nav>
 
                     {/* Center: Title */}
-                    <h1 className="text-lg font-semibold tracking-wide">
+                    <h1 className="text-lg bg-white-800 font-semibold tracking-wide">
                         Study Analytics
                     </h1>
 
