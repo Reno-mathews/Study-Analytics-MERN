@@ -32,7 +32,7 @@ function Header({ onLogout }) {
                     {/* Right: Logout */}
                     <button
                         onClick={onLogout}
-                        className="text-sm bg-red-600 hover:bg-red-700 px-4 py-1.5 rounded-md font-medium transition"
+                        className=""
                     >
                         Logout
                     </button>                
