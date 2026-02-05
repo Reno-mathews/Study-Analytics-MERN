@@ -11,7 +11,7 @@ function Header({ onLogout }) {
         }`;
 
         return (
-            <header className="bg-slate-900 border-b border-slate-700">
+            <header className="bg-white border-b border-slate-700">
                 <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
                     {/* Left: Navigation */}
