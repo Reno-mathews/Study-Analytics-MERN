@@ -204,8 +204,14 @@ function Board() {
                 required
                 className="w-full border border-slate-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500"
             />
-            
 
+            {/* Actions */}
+            <div className="flex jusitfy-end gap-3 pt-2">
+                <button
+                    type="button"
+                    onClick={() => setShowModal(false)}
+                    className="px-4 py-2 text-sm rounded-md border border-slate-300 hover:bg-slate-100"
+            </div>
             </form>
         </div>
         </div>
