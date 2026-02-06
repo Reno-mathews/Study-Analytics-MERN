@@ -24,6 +24,10 @@ function Board() {
         sessionCount,
         averageMinutes,
         mostStudiedSubject,
+        subject,
+        duration,
+        date,
+        showModal
          } = useAnalyticsBoard();
 
     if (loading) return <div>Loading...</div>;
