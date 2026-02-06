@@ -152,7 +152,26 @@ function Board() {
     </div>
 
     {showModal && (
-        <div className="fixed inset-0 z-50"
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+        <div className="bg-white rounded-lg w-full max-w-md p-6">
+        <h2 className="text-lg font-semibold mb-4">
+            Add Study Session
+        </h2>
+
+        <form 
+            onSubmit={(e) => {
+                e.preventDefault();
+
+                addSession({
+                    subject,
+                    duration: Number(duration),
+                    session_date: date,
+                });
+
+                setSubject("");
+            }}
+        </div>
+        </div>
     )}
 );
 }
