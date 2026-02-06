@@ -29,7 +29,7 @@ router.post(
             res.json({ url: session.url });
         } catch (err) {
             console.error("Stripe error:", err);
-            res.status(500).json({ error: "Failed to create checkout session" })''
+            res.status(500).json({ error: "Failed to create checkout session" });
         }
     }
 );
