@@ -149,7 +149,6 @@ function Board() {
     </div>
     </div>
     </div>
-    </div>
 
     {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
@@ -211,11 +210,22 @@ function Board() {
                     type="button"
                     onClick={() => setShowModal(false)}
                     className="px-4 py-2 text-sm rounded-md border border-slate-300 hover:bg-slate-100"
+                >
+                Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    className="px-4 py-2 text-sm rounded-md bg-blue-600 text-white hover:bg-blue-700"
+                >
+                    Save
+                </button>
             </div>
-            </form>
+        </form>
         </div>
         </div>
     )}
+</div>
 );
 }
 
