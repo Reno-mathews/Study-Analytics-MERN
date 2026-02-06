@@ -165,7 +165,7 @@ function Board() {
                 setDate("");
                 setShowModal(false);
             }}
-            className="sapce-y-4"
+            className="space-y-4"
             >
             {/* Subject */}
             <input
