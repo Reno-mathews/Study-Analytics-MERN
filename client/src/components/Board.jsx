@@ -115,7 +115,7 @@ function Board() {
                 className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md text-sm font-medium transition"
                 >
                     + Add Session
-                </button>
+            </button>
         </div>
         {sessions.length === 0 ? (
             <p>No sessions yet</p>
@@ -150,6 +150,10 @@ function Board() {
     </div>
     </div>
     </div>
+
+    {showModal && (
+        <div className="fixed inset-0 z-50"
+    )}
 );
 }
 
