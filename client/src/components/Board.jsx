@@ -169,7 +169,44 @@ function Board() {
                 });
 
                 setSubject("");
+                SetDuration("");
+                setDataStartEndIndexes("");
+                setShowModal(false);
             }}
+            className="sapce-y-4"
+            >
+            {/* Subject */}
+            <input
+                type="text"
+                placeholder="Subject (e.g. Math, React)"
+                value={subject}
+                onChange={(e) => setSubject(e.target.value)}
+                required
+                className="w-full border border-slate-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500"
+            />
+
+            {/* Duration */}
+            <input
+                type="number"
+                placeholder="Duration (minutes)"
+                value={duration}
+                onChange={(e) => setDuration(e.target.value)}
+                min="1"
+                required
+                className="w-full border border-slate-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500"
+            />
+
+            {/* Date */}
+            <input
+                type="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                required
+                className="w-full border border-slate-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500"
+            />
+            
+
+            </form>
         </div>
         </div>
     )}
