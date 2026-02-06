@@ -24,11 +24,12 @@ function Board() {
         sessionCount,
         averageMinutes,
         mostStudiedSubject,
-        subject,
-        duration,
-        date,
-        showModal
          } = useAnalyticsBoard();
+
+        const [subject, setSubject] = useState("");
+        const [duration, setDuration] = useState("");
+        const [date,setDate] = useState("");
+        const [showModal, setShowModal] = useState(false)
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div className="text-red-500">{error}</div>;
@@ -138,18 +139,6 @@ function Board() {
         </div>
 )}
     <div className="flex jusitfy-end">
-    <button
-        onClick={() => 
-            addSession({
-                subject: "React",
-                duration: 45,
-                session_date: "2026-02-03",
-            })
-        }
-        className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md text-sm font-medium transition"
-    >
-        Add test session
-    </button>
     </div>
     </div>
     </div>
@@ -172,8 +161,8 @@ function Board() {
                 });
 
                 setSubject("");
-                SetDuration("");
-                setDataStartEndIndexes("");
+                setDuration("");
+                setDate("");
                 setShowModal(false);
             }}
             className="sapce-y-4"
