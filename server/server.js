@@ -9,6 +9,8 @@ const authMiddleware = require("./middleware/auth.middleware");
 
 const sessionsRoutes = require("./routes/sessions.routes");
 
+app.use("/stripe", require("./routes/stripe.webhook"));
+
 app.use(cors());
 app.use(express.json());
 app.use("/sessions", sessionsRoutes);
