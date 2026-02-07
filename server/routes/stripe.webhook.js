@@ -31,8 +31,13 @@ router.post(
 
             try {
                 await pool.query(
-                    "UPDATE users SET is_pro = true, stripe_customer_id =$1, stripe_subscription_id = $2 WHERE id = $3",
-                    [userId]
+                    `UPDATE users SET 
+                                    is_pro = true,
+                                    stripe_customer_id =$1, 
+                                    stripe_subscription_id = $2
+                                WHERE id = $3
+                    `,
+                    [customerId, subscriptionId, userId]
                 );
             } catch (dbErr) {
                 console.error("DB update failed:", dbErr);
