@@ -26,6 +26,7 @@ router.post(
         if(event.type === "checkout.session.completed") {
             const session = event.data.object;
             const userId = session.metadata.userId;
+            const customerId = session.customer;
 
             try {
                 await pool.query(
