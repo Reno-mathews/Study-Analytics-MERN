@@ -193,7 +193,7 @@ function Board() {
             />
 
             {/* Actions */}
-            <div className="flex jusitfy-end gap-3 pt-2">
+            <div className="flex justify-end gap-3 pt-2">
                 <button
                     type="button"
                     onClick={() => setShowModal(false)}

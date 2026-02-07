@@ -8,6 +8,11 @@ function UpgradeSuccess() {
                 <p className="text-slate-600">
                     Your subscription is now active.
                 </p>
+                <a
+                href="/"
+                className="inline-block bg-blue-600 text-white px-5 py-2 rounded">
+                    Go to Dashboard
+                </a>
             </div>
         </div>
     );
