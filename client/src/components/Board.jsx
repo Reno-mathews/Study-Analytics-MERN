@@ -50,7 +50,7 @@ function Board() {
                 title="Sessions"
                 value={sessionCount}
             />
-            
+
             <DashboardCard
                 title="Avg / Session"
                 value={`${averageMinutes} min`}
@@ -133,7 +133,7 @@ function Board() {
             ))}
         </div>
 )}
-    <div className="flex jusitfy-end">
+    <div className="flex justify-end">
     </div>
     </div>
     </div>
