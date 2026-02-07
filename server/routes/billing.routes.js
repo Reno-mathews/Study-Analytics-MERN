@@ -2,7 +2,7 @@ const express = require("express");
 const Stripe = require("stripe");
 const authMiddleware = require("../middleware/auth.middleware");
 
-const router = express.router();
+const router = express.Router();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 router.post(
@@ -20,7 +20,7 @@ router.post(
                     },
                 ],
                 success_url: `${process.env.CLIENT_URL}/upgrade-success`,
-                cancel_url: `${process.env.CLIENT_URL}upgrade`,
+                cancel_url: `${process.env.CLIENT_URL}/upgrade`,
                 metadata: {
                     userId: req.userId,
                 }

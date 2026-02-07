@@ -7,6 +7,7 @@ import AuthForm from './components/AuthForm';
 
 import { Navigate, Routes, Route } from "react-router-dom";
 import Upgrade from "./pages/Upgrade";
+import UpgradeSuccess from './pages/UpgradeSuccess';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -69,6 +70,7 @@ function App() {
       <Route path="/" element={<Board />} />
       <Route path="/upgrade" element={<Upgrade />} />
       <Route path="*" element={<Navigate to="/" />} />
+      <Route path="/upgrade-success" element={<UpgradeSuccess />} />
     </Routes>
     </>
   ); 

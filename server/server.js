@@ -26,6 +26,8 @@ app.get("/protected", authMiddleware, (req, res) => {
     });
 });
 
+app.use("/billing", require("./routes/billing.routes"));
+
 app.listen(5000, () => {
     console.log("Server running on http://localhost:5000");
 });

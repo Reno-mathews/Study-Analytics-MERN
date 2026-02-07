@@ -1,4 +1,26 @@
 function Upgrade() {
+
+    const startCheckout = async () => {
+        const token = localStorage.getItem("token");
+
+        const res = await fetch(
+            "http://localhost:5000/billing/create-checkout-session",
+            {
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
+
+        const data = await res.json();
+
+        if (data.url) {
+            window.location.href = data.url;
+        } else {
+            alert("Something went wrong with Stripe checkout");
+        }
+    };
     return (
         <div className="min-h-screen bg-slate-100">
             <div className="max-w-4xl mx-auto px-6 py-10">
@@ -34,7 +56,8 @@ function Upgrade() {
                             <li>✔ Priority features</li>
                         </ul>
 
-                        <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+                        <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+                        onClick={startCheckout}>
                             Upgrade to Pro
                         </button>
                     </div>
