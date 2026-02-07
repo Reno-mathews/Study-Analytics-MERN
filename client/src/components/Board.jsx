@@ -50,12 +50,7 @@ function Board() {
                 title="Sessions"
                 value={sessionCount}
             />
-
-            <DashboardCard
-                title="Sessions"
-                value={sessionCount}
-            />
-
+            
             <DashboardCard
                 title="Avg / Session"
                 value={`${averageMinutes} min`}
