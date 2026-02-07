@@ -27,6 +27,7 @@ router.post(
             const session = event.data.object;
             const userId = session.metadata.userId;
             const customerId = session.customer;
+            const subscriptionId = session.subscription;
 
             try {
                 await pool.query(
