@@ -5,4 +5,4 @@ module.exports = function requirePro(req, res, next) {
         });
     }
     next();
-}
+};
