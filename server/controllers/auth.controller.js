@@ -18,7 +18,10 @@ exports.signup = async (req, res) => {
         );
 
         const token = jwt.sign(
-            { userId: result.rows[0].id },
+            { 
+                userId: result.rows[0].id,
+            isPro: user.is_pro 
+        },
             process.env.JWT_SECRET,
             { expiresIn: "7d"}
         );
