@@ -25,6 +25,12 @@ router.post(
 
         if(event.type === "checkout.session.completed") {
             const session = event.data.object;
+
+            if (!session.metadata?.userId) {
+                console.warn("Missing userId metadata");
+                return res.json({ received: true });
+            }
+
             const userId = session.metadata.userId;
             const customerId = session.customer;
             const subscriptionId = session.subscription;
@@ -44,7 +50,21 @@ router.post(
             }
         }
 
-        if (eve)
+        if (event.type === "customer.subscription.deleted") {
+            try {
+                const subscription = event.data.object;
+
+            await pool.query(
+                `UPDATE users
+                SET is_pro = false
+                WHERE stripe_subscription_id = $1
+                `,
+                [subscription.id]
+            );
+        } catch (err) {
+            console.error("Subscription delete DB error:", err);
+        }
+        }
 
         res.json({ received: true});
     }
