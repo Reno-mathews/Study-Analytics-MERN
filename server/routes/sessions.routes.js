@@ -12,3 +12,4 @@ router.get("/", auth, getSessions);
 router.post("/", auth, createSession);
 
 module.exports = router;
+
