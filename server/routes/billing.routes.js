@@ -31,7 +31,7 @@ router.post(
             console.error("Stripe error:", err);
             res.status(500).json({ error: "Failed to create checkout session" });
         }
-    }
-);
+    } 
+); 
 
 module.exports = router;
