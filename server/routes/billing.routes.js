@@ -22,7 +22,7 @@ router.post(
                 success_url: `${process.env.CLIENT_URL}/upgrade-success`,
                 cancel_url: `${process.env.CLIENT_URL}/upgrade`,
                 metadata: {
-                    userId: req.userId,
+                    userId: req.user.userId,
                 }
             });
 
