@@ -20,7 +20,7 @@ exports.signup = async (req, res) => {
         const token = jwt.sign(
             { 
                 userId: result.rows[0].id,
-            isPro: user.is_pro 
+            isPro: false
         },
             process.env.JWT_SECRET,
             { expiresIn: "7d"}
@@ -48,7 +48,7 @@ exports.login = async (req, res) => {
     try {
         // Find user
         const result = await pool.query(
-            "SELECT id, password FROM users WHERE email = $1",
+            "SELECT id, password, is_pro FROM users WHERE email = $1",
             [email]
         );
     if (result.rows.length === 0) {
