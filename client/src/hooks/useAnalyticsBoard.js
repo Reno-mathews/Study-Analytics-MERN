@@ -23,8 +23,15 @@ export const useAnalyticsBoard = () => {
     }, []);
 
     const addSession = async (session) => {
+        try {
         const newSession = await createSession(session);
         setSessions((prev) => [...prev, newSession]);
+        } catch (err) {
+            if (err.message === "PRO_REQUIRED") {
+                throw err;
+            }
+            setError(err.message || "Failed to create session");
+        }
     };
 
     const dailyTotal = sessions.reduce((acc, session) => {
