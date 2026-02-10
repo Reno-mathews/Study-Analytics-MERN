@@ -22,7 +22,9 @@ const login = async(email, password) => {
     localStorage.setItem("token", data.token);
     return { 
         userId: decoded.userId,
-        isPro: token: data.user};
+        isPro: decoded.isPro,
+        token
+    };
 }
 
 const signup = async (email, password) => {
