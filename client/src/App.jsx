@@ -20,7 +20,19 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      setUser({ token });
+      try {
+        const decoded = jwtDecode(token);
+
+        setUser({
+          userId: decoded.userId,
+          isPro: decoded.isPro,
+          token,
+        });
+      } catch (err) {
+        console.error("Invalid token", err);
+        localStorage.removeItem("token");
+        setUser(null);
+      }
     }
   }, []);
 
