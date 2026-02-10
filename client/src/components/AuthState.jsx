@@ -1,3 +1,5 @@
+import jwtDecode from "jwt-decode";
+
 const API_URL = "http://localhost:5000";
 
 const login = async(email, password) => {
