@@ -42,7 +42,8 @@ const signup = async (email, password) => {
     }
 
     const token = data.token;
-    const decoded = 
+    const decoded = jwtDecode(token);
+    
     localStorage.setItem("token", data.token);
     return { token:data.user};
 };
