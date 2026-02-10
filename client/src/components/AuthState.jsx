@@ -17,7 +17,8 @@ const login = async(email, password) => {
         throw new Error(data.message || data.error || "Login failed");
     }
     const token = data.token;
-    const 
+    const decoded = jwtDecode(token);
+    
     localStorage.setItem("token", data.token);
     return { token: data.user};
 }
