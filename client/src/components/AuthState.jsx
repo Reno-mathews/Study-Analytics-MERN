@@ -43,9 +43,13 @@ const signup = async (email, password) => {
 
     const token = data.token;
     const decoded = jwtDecode(token);
-    
+
     localStorage.setItem("token", data.token);
-    return { token:data.user};
+    return { 
+        userId: decoded.userId,
+        isPro: decoded.isPro,
+        token
+    };
 };
 
 export { login, signup };
