@@ -18,9 +18,11 @@ const login = async(email, password) => {
     }
     const token = data.token;
     const decoded = jwtDecode(token);
-    
+
     localStorage.setItem("token", data.token);
-    return { token: data.user};
+    return { 
+        userId: decoded.userId,
+        isPro: token: data.user};
 }
 
 const signup = async (email, password) => {
