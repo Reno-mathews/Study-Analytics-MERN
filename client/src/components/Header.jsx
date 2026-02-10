@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import LogoutButton from "./LogoutButton";
 
 function Header({ onLogout }) {
     const location = useLocation();
