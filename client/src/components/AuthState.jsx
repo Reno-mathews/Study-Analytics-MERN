@@ -40,6 +40,9 @@ const signup = async (email, password) => {
     if(!res.ok) {
         throw new Error(data.message || data.error || "Signup failed");
     }
+
+    const token = data.token;
+    const decoded = 
     localStorage.setItem("token", data.token);
     return { token:data.user};
 };
