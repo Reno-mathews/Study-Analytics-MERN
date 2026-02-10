@@ -78,7 +78,7 @@ function App() {
 
   return (
     <>
-    <Header onLogut={handleLogout} />
+    <Header onLogout={handleLogout} />
 
     <Routes>
       <Route path="/" element={<Board />} />
