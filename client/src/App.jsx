@@ -9,6 +9,8 @@ import { Navigate, Routes, Route } from "react-router-dom";
 import Upgrade from "./pages/Upgrade";
 import UpgradeSuccess from './pages/UpgradeSuccess';
 
+import { jwtDecode } from 'jwt-decode';
+
 function App() {
   const [user, setUser] = useState(null);
   const [isSignUp, setIsSignUp] = useState(false);
