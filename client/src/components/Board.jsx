@@ -69,8 +69,12 @@ function Board() {
                 <>
                     <DashboardCard
                         title="Avg / Session"
-                        value="</>
-            )
+                        value="🔒 Pro"
+                    />
+                </>
+            )}
+
+            
         </div>
 
         <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
