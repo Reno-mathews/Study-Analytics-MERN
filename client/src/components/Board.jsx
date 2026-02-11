@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useContext } from "react";
+
 import { useAnalyticsBoard } from "../hooks/useAnalyticsBoard";
 import {
     LineChart,
