@@ -116,7 +116,7 @@ function Board() {
                         Upgrade to Pro
                     </button>
                 </div>
-            )
+            )}
             <ResponsiveContainer width="100%" height={220}>
                 <BarChart data={subjectChartData} layout="vertical">
                     <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
