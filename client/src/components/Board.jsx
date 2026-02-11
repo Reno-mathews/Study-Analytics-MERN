@@ -100,7 +100,14 @@ function Board() {
 
             {user?.isPro ? (
                 <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8">
-                    
+                 <h2 className="text-base font-semibold mb-4 text-slate-800">
+                    Time by Subject
+                </h2>
+
+        {subjectChartData.length <= 1 ? (
+            <p className="text-sm text-slate-500">
+                Add more subjects to see a comparison.
+            </p>
     
             ) : (
                 <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8 text-center">
