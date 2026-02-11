@@ -72,9 +72,9 @@ function Board() {
                         value="🔒 Pro"
                     />
                 </>
-                </div>
+                
             )}
-
+        </div>
 
 
 
