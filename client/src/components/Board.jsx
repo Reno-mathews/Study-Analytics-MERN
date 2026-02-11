@@ -110,8 +110,7 @@ function Board() {
             </p>
     
             ) : (
-                
-
+            
             <ResponsiveContainer width="100%" height={220}>
                 <BarChart data={subjectChartData} layout="vertical">
                     <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -127,6 +126,7 @@ function Board() {
             </ResponsiveContainer>
             )}
         </div>
+            ) : (
 
         <div className="flex justify-end mb-6">
             <button
