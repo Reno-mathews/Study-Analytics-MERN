@@ -54,7 +54,7 @@ function Board() {
             />
 
             {user?.isPro ? (
-              <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8">  
+              <>  
                 <DashboardCard
                     title="Avg / Session"
                     value={`${averageMinutes} min`}
@@ -64,7 +64,7 @@ function Board() {
                     title="Top Subject"
                     value={mostStudiedSubject}
                 />
-            </div>
+            </>
             ) : (
                 <>
                     <DashboardCard
