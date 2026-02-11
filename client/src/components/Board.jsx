@@ -72,10 +72,11 @@ function Board() {
                         value="🔒 Pro"
                     />
                 </>
+                </div>
             )}
 
 
-        </div>
+
 
         <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
             <h2 className="text-base font-semibold mb-4">Daily Study Time</h2>
