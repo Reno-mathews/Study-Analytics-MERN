@@ -81,7 +81,7 @@ function App() {
     <Header onLogout={handleLogout} />
 
     <Routes>
-      <Route path="/" element={<Board />} />
+      <Route path="/" element={<Board user={user} />} />
       <Route path="/upgrade" element={<Upgrade />} />
       <Route path="*" element={<Navigate to="/" />} />
       <Route path="/upgrade-success" element={<UpgradeSuccess />} />
