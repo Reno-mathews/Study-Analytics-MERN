@@ -35,6 +35,8 @@ router.post(
             const customerId = session.customer;
             const subscriptionId = session.subscription;
 
+            console.log("SESSION METADATE:", session.metadata);
+
             try {
                 await pool.query(
                     `UPDATE users SET 
