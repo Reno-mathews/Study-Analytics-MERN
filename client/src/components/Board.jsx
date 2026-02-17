@@ -14,7 +14,7 @@ import {
 import { BarChart, Bar } from "recharts";
 import DashboardCard from "../components/DashboardCard";
 
-function Board() {
+function Board({ user }) {
     const { 
         sessions,
         loading, 
