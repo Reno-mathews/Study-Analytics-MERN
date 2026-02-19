@@ -113,6 +113,10 @@ function Board({ user }) {
             </ResponsiveContainer>
         </div>
 
+        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
+            
+        </div>
+
             {user?.isPro ? (
                 <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8">
                  <h2 className="text-base font-semibold mb-4 text-slate-800">
