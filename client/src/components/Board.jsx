@@ -120,6 +120,8 @@ function Board({ user }) {
                 <AreaChart data={dailyChartData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis dataKey="date" stroke="#64748b" />
+                <YAxis stroke="#64748b" />
+                <Tooltip />
                 </AreaChart>
             </ResponsiveContainer>
         </div>
