@@ -55,6 +55,10 @@ export const useAnalyticsBoard = () => {
         })
     );
 
+    let runningTotal = 0;
+
+    const cumula
+
     const subjectTotals = sessions.reduce((acc, session) => {
         acc[session.subject] =
             (acc[session.subject] || 0) + session.duration;
