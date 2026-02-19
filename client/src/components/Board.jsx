@@ -13,6 +13,7 @@ import {
 } from "recharts";
 import { BarChart, Bar } from "recharts";
 import { AreaChart, Area } from "recharts";
+import { PieChart, Pie, Cell, Legend } from "recharts";
 import DashboardCard from "../components/DashboardCard";
 
 function Board({ user }) {
@@ -129,6 +130,18 @@ function Board({ user }) {
                     fill="#c7d2fe"
                 />
                 </AreaChart>
+            </ResponsiveContainer>
+        </div>
+
+        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
+            <h2 className="text-base font-semibold mb-4">Subject Distribution</h2>
+
+            <ResponsiveContainer width="100%" height={260}>
+                <PieChart>
+                    <Pie    
+                        data={subjectChartData}
+                        
+                </PieChart>
             </ResponsiveContainer>
         </div>
 
