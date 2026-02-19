@@ -102,7 +102,13 @@ function Board({ user }) {
             <h2 className="text-base font-semibold mb-4">Sessions Per Day</h2>
 
             <ResponsiveContainer width="100%" height={260}>
-                <BarChart data={}
+                <BarChart data={dailyChartData}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                    <XAxis dataKey="data" stroke="#64748b" />
+                    <YAxis stroke="#64748b" />
+                    <Tooltip />
+                    <Bar dataKey="sessions" fill="#10b981" />
+                </BarChart>
             </ResponsiveContainer>
         </div>
 
