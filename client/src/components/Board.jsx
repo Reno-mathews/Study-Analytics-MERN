@@ -154,6 +154,7 @@ function Board({ user }) {
             </ResponsiveContainer>
         </div>
         </div>
+        
 
             {user?.isPro ? (
                 <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8">
