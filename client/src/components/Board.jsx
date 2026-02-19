@@ -12,6 +12,7 @@ import {
     ResponsiveContainer,
 } from "recharts";
 import { BarChart, Bar } from "recharts";
+import { AreaChart, Area } from "recharts";
 import DashboardCard from "../components/DashboardCard";
 
 function Board({ user }) {
