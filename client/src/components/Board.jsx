@@ -148,6 +148,8 @@ function Board({ user }) {
                         fill="#8884d8"
                         label
                     />
+                    <Tooltip />
+                    <Legend />
                 </PieChart>
             </ResponsiveContainer>
         </div>
