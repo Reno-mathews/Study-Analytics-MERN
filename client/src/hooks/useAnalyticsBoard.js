@@ -35,8 +35,17 @@ export const useAnalyticsBoard = () => {
     };
 
     const dailyStats = sessions.reduce((qcc, session) => {
-        const date = new Date(session.session_date)
-    })
+        const date = new Date(session.session_date).toLocaleDateString();
+
+        if (!acc[date]) {
+            acc[date] = { minutes: 0, sessions: 0 };
+        }
+
+        acc[date].minutes += session.duration;
+        acc[date].sessions += 1;
+
+        return acc;
+    }, {});
 
     const dailyChartData = Object.entries(dailyTotal).map(
         ([date, total]) => ({
