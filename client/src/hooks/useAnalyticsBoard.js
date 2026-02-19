@@ -47,10 +47,11 @@ export const useAnalyticsBoard = () => {
         return acc;
     }, {});
 
-    const dailyChartData = Object.entries(dailyTotal).map(
-        ([date, total]) => ({
+    const dailyChartData = Object.entries(dailyStats).map(
+        ([date, stats]) => ({
             date,
-            minutes: total,
+            minutes: stats.minutes,
+            sessions: stats.sessions,
         })
     );
 
