@@ -122,6 +122,12 @@ function Board({ user }) {
                 <XAxis dataKey="date" stroke="#64748b" />
                 <YAxis stroke="#64748b" />
                 <Tooltip />
+                <Area 
+                    type="monotone"
+                    dataKey="cumulativeMinutes"
+                    stroke="#6366f1"
+                    fill="#c7d2fe"
+                />
                 </AreaChart>
             </ResponsiveContainer>
         </div>
