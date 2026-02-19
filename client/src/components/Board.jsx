@@ -115,6 +115,13 @@ function Board({ user }) {
 
         <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
             <h2 className="text-base font-semibold mb-4">Cumulative Study Time </h2>
+
+            <ResponsiveContainer width="100%" height={260}>
+                <AreaChart data={dailyChartData}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <XAxis dataKey="date" stroke="#64748b" />
+                </AreaChart>
+            </ResponsiveContainer>
         </div>
 
             {user?.isPro ? (
