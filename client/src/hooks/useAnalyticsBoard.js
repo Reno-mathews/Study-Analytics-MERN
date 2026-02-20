@@ -81,9 +81,10 @@ export const useAnalyticsBoard = () => {
     ]
 
     const subjectChartData = Object.entries(subjectTotals).map(
-        ([subject, minutes]) => ({
+        ([subject, minutes], index) => ({
             subject,
             minutes,
+            fill: colours[index % colors.length],
         })
     );
 
