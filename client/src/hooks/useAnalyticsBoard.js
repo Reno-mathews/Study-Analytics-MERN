@@ -142,6 +142,11 @@ export const useAnalyticsBoard = () => {
         }
     }
 
+    let longestStreak = 0;
+    let tempStreak = 1;
+
+    for (let i =1; i < st)
+
     return {
         sessions,
         loading,
