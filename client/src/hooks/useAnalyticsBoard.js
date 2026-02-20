@@ -120,6 +120,14 @@ export const useAnalyticsBoard = () => {
         ),
     ].sort((a, b) => new Date(a) - new Date(b));
 
+    let currentStreak = 0;
+    if (studyDates.length > 0) {
+        let today = new Date().toDateString();
+        let yesterday = new Date(Date.now() - 86400000).toDateString();
+
+        let
+    }
+
     return {
         sessions,
         loading,
