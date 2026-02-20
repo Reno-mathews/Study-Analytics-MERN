@@ -106,7 +106,7 @@ function Board({ user }) {
             <ResponsiveContainer width="100%" height={260}>
                 <BarChart data={dailyChartData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                    <XAxis dataKey="data" stroke="#64748b" />
+                    <XAxis dataKey="date" stroke="#64748b" />
                     <YAxis stroke="#64748b" />
                     <Tooltip />
                     <Bar dataKey="sessions" fill="#10b981" />
@@ -154,7 +154,7 @@ function Board({ user }) {
             </ResponsiveContainer>
         </div>
         </div>
-        
+
 
             {user?.isPro ? (
                 <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8">
