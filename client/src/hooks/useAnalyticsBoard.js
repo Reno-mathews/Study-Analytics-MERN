@@ -112,6 +112,14 @@ export const useAnalyticsBoard = () => {
     )[0][0];
     }) ();
 
+    const studyDates = [
+        ...new Set(
+            sessions.map((s) =>
+            new Date(s.session_date).toDateString()
+        )
+        ),
+    ].sort((a, b) => new Date(a) - new Date(b));
+
     return {
         sessions,
         loading,
