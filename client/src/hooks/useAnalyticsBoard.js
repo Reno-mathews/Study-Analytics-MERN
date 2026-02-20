@@ -133,7 +133,11 @@ export const useAnalyticsBoard = () => {
 
             for (let i = studyDates.length - 2; i >= 0; i--) {
                 const diff = 
-                (new Date(studyDates[i + 1]) - new )
+                (new Date(studyDates[i + 1]) - new Date(studyDates[i])) /
+                86400000;
+
+            if (dif === 1) currentStreak++;
+            else break;
             }
         }
     }
