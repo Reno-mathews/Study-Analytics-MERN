@@ -34,7 +34,7 @@ export const useAnalyticsBoard = () => {
         }
     };
 
-    const dailyStats = sessions.reduce((qcc, session) => {
+    const dailyStats = sessions.reduce((acc, session) => {
         const date = new Date(session.session_date).toLocaleDateString();
 
         if (!acc[date]) {
@@ -84,7 +84,7 @@ export const useAnalyticsBoard = () => {
         ([subject, minutes], index) => ({
             subject,
             minutes,
-            fill: colours[index % colors.length],
+            fill: colors[index % colors.length],
         })
     );
 
