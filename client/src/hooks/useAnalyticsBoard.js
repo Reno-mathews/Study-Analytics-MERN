@@ -131,7 +131,9 @@ export const useAnalyticsBoard = () => {
         if (lastDate === today || lastDate === yesterday) {
             currentStreak = 1;
 
-            for (let i)
+            for (let i = studyDates.length - 2; i >= 0; i--) {
+                
+            }
         }
     }
 
