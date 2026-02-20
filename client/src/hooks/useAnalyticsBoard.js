@@ -71,6 +71,15 @@ export const useAnalyticsBoard = () => {
         return acc;
     }, {});
 
+    const colors = [
+    "#3b82f6",
+    "#10b981",
+    "#f59e0b",
+    "#ef4444",
+    "#8b5cf6",
+    "#14b8a6",
+    ]
+
     const subjectChartData = Object.entries(subjectTotals).map(
         ([subject, minutes]) => ({
             subject,
