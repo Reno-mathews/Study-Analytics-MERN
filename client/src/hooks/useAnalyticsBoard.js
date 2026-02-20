@@ -132,7 +132,8 @@ export const useAnalyticsBoard = () => {
             currentStreak = 1;
 
             for (let i = studyDates.length - 2; i >= 0; i--) {
-                
+                const diff = 
+                (new Date(studyDates[i + 1]) - new )
             }
         }
     }
