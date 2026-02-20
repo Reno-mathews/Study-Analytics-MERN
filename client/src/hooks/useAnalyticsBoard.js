@@ -57,7 +57,13 @@ export const useAnalyticsBoard = () => {
 
     let runningTotal = 0;
 
-    const cumula
+    const cumulativeChartData = dailyChartData.map((d) => {
+        runningTotal += d.minutes;
+        return {
+            ...d,
+            cumulativeMinutes: runningTotal,
+        };
+    });
 
     const subjectTotals = sessions.reduce((acc, session) => {
         acc[session.subject] =
@@ -107,5 +113,6 @@ export const useAnalyticsBoard = () => {
         sessionCount,
         averageMinutes,
         mostStudiedSubject,
+        cumulativeChartData
     };
 };
