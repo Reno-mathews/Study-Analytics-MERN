@@ -175,6 +175,7 @@ function Board({ user }) {
 
                 <CalendarHeatmap
                     startDate={new Date("2026-01-01")}
+                    endDate={new Date()}
                     
             </div>
         </div>
