@@ -10,6 +10,7 @@ import Upgrade from "./pages/Upgrade";
 import UpgradeSuccess from './pages/UpgradeSuccess';
 
 import { jwtDecode } from "jwt-decode";
+import "./App.css"
 
 function App() {
   const [user, setUser] = useState(null);
