@@ -145,7 +145,13 @@ export const useAnalyticsBoard = () => {
     let longestStreak = 0;
     let tempStreak = 1;
 
-    for (let i =1; i < st)
+    for (let i =1; i < studyDates.length; i++) {
+        const diff =
+            (new Date(studyDates[i]) - new Date(studyDates[i - 1])) /
+            86400000;
+
+            
+    }
 
     return {
         sessions,
