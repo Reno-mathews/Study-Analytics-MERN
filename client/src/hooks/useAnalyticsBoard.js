@@ -165,8 +165,13 @@ export const useAnalyticsBoard = () => {
         .toISOString()
         .slice(0, 10);
 
-        acc[date] = (acc[date] || 0) + session.
-    })
+        acc[date] = (acc[date] || 0) + session.duration;
+        return acc;
+    }, {});
+
+    const heatmapChartDate = Object.entries(heatmapData).map(
+        ([date, count]) => ({ date, count })
+    );
 
     return {
         sessions,
@@ -182,5 +187,6 @@ export const useAnalyticsBoard = () => {
         cumulativeChartData,
         currentStreak,
         longestStreak,
+        heatmapChartDate,
     };
 };
