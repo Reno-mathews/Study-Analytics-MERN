@@ -29,6 +29,8 @@ function Board({ user }) {
         sessionCount,
         averageMinutes,
         mostStudiedSubject,
+        currentStreak,
+        longestStreak,
          } = useAnalyticsBoard();
 
         const [subject, setSubject] = useState("");
@@ -67,6 +69,10 @@ function Board({ user }) {
                     title="Top Subject"
                     value={mostStudiedSubject}
                 />
+
+                <DashboardCard
+                    title="Current Streak"
+                    value={`${currentStreak}`}
             </>
             ) : (
                 <>
