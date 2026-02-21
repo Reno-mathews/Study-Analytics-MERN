@@ -150,8 +150,15 @@ export const useAnalyticsBoard = () => {
             (new Date(studyDates[i]) - new Date(studyDates[i - 1])) /
             86400000;
 
-            
+        if (diff === 1) {
+            tempStreak++;
+        } else {
+            longestStreak = Math.max(longestStreak, tempStreak);
+            tempStreak = 1;
+        }
     }
+
+    longestStreak = Math.max(longestStreak, tempStreak);
 
     return {
         sessions,
