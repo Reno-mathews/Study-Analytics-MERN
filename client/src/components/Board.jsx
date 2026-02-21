@@ -169,7 +169,10 @@ function Board({ user }) {
                 </PieChart>
             </ResponsiveContainer>
 
-            <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
+
+        </div>
+
+                    <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
                 <h2 className="text-base font-semibold mb-4">
                     Study Consistency
                 </h2>
@@ -193,7 +196,6 @@ function Board({ user }) {
                     })}
                 />
             </div>
-        </div>
         </div>
 
 
