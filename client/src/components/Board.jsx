@@ -15,6 +15,8 @@ import { BarChart, Bar } from "recharts";
 import { AreaChart, Area } from "recharts";
 import { PieChart, Pie, Cell, Legend } from "recharts";
 import DashboardCard from "../components/DashboardCard";
+import CalendarHeatmap from "react-calendar-heatmap";
+import "react-calendar-heatmap/dist/styles.css";
 
 function Board({ user }) {
     const { 
