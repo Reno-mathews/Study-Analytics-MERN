@@ -33,6 +33,7 @@ function Board({ user }) {
         mostStudiedSubject,
         currentStreak,
         longestStreak,
+        heatmapChartData,
          } = useAnalyticsBoard();
 
         const [subject, setSubject] = useState("");
@@ -176,7 +177,21 @@ function Board({ user }) {
                 <CalendarHeatmap
                     startDate={new Date("2026-01-01")}
                     endDate={new Date()}
-                    
+                    values={heatmapChartData}
+                    classForValue={(value) => {
+                        if (!value) return "color-empty";
+                        if (value.count < 60) return "color-scale-1";
+                        if (value.count < 120) return "color-scale-2";
+                        if (value.count < 240) return "color-scale-3";
+                        return "colour-scalr-4";
+                    }}
+                    tooltipDataAttrs={(value) => ({
+                        "data-tip":
+                        value?.date
+                         ? `${value.date}: ${value.count} min`
+                         : "No study",
+                    })}
+                />
             </div>
         </div>
         </div>
