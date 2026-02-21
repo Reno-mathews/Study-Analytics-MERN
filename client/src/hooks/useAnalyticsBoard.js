@@ -160,6 +160,14 @@ export const useAnalyticsBoard = () => {
 
     longestStreak = Math.max(longestStreak, tempStreak);
 
+    const heatmapDate = sessions.reduce((acc, session) => {
+        const date = new Date(session.session_date)
+        .toISOString()
+        .slice(0, 10);
+
+        acc[date] = (acc[date] || 0) + session.
+    })
+
     return {
         sessions,
         loading,
