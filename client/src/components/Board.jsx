@@ -72,7 +72,13 @@ function Board({ user }) {
 
                 <DashboardCard
                     title="Current Streak"
-                    value={`${currentStreak}`}
+                    value={`${currentStreak} days 🔥`}
+                />
+
+                <DashboardCard
+                    title="Longest Streak"
+                    value={`${longestStreak} days ⭐`}
+                />
             </>
             ) : (
                 <>
