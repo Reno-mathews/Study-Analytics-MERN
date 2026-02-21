@@ -167,6 +167,16 @@ function Board({ user }) {
                     <Legend />
                 </PieChart>
             </ResponsiveContainer>
+
+            <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
+                <h2 className="text-base font-semibold mb-4">
+                    Study Consistency
+                </h2>
+
+                <CalendarHeatmap
+                    startDate={new Date("2026-01-01")}
+                    
+            </div>
         </div>
         </div>
 
