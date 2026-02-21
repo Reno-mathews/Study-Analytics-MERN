@@ -171,6 +171,8 @@ export const useAnalyticsBoard = () => {
         sessionCount,
         averageMinutes,
         mostStudiedSubject,
-        cumulativeChartData
+        cumulativeChartData,
+        currentStreak,
+        longestStreak,
     };
 };
