@@ -47,9 +47,10 @@ function Board({ user }) {
     return (
     <div className="min-h-screen bg-slate-100 text-slate-900">
         <div className="max-w-7xl mx-auto px-6 py-6">
+            <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
     <div className="p-6">
         <h1 className="text-2xl font-bold mb-4">Study Analytics</h1>
-
+        <div className="xl:col-span-2">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             <DashboardCard
                 title="Total Study Time"
