@@ -176,7 +176,8 @@ function Board({ user }) {
                 <h2 className="text-base font-semibold mb-4">
                     Study Consistency
                 </h2>
-
+                <div className="overflow-x-auto">
+                    <div className="mx-auto w-fit">
                 <CalendarHeatmap
                     startDate={new Date("2026-01-01")}
                     endDate={new Date()}
@@ -195,6 +196,8 @@ function Board({ user }) {
                          : "No study",
                     })}
                 />
+            </div>
+            </div>
             </div>
         </div>
 
