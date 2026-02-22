@@ -224,7 +224,7 @@ function Board({ user }) {
 
         <div className="x;:col-span-1">
             <div className="bg-white border border-slate-200 rounded-lg p-5 sticky top-6">
-r-slate-200 rounded-lg p-5 mb-8">
+
                 <h2 className="text-base font-semibold mb-4">
                     Study Consistency
                 </h2>
