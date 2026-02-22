@@ -218,7 +218,37 @@ function Board({ user }) {
             Upgrade to Pro
         </button>
     </div>
+
+    
             )}
+
+                <div className="overflow-x-auto">
+            <div className="mx-auto w-fit">
+        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
+                <h2 className="text-base font-semibold mb-4">
+                    Study Consistency
+                </h2>
+                <CalendarHeatmap
+                    startDate={new Date("2026-01-01")}
+                    endDate={new Date()}
+                    values={heatmapChartData}
+                    classForValue={(value) => {
+                        if (!value) return "color-empty";
+                        if (value.count < 60) return "color-scale-1";
+                        if (value.count < 120) return "color-scale-2";
+                        if (value.count < 240) return "color-scale-3";
+                        return "colour-scalr-4";
+                    }}
+                    tooltipDataAttrs={(value) => ({
+                        "data-tip":
+                        value?.date
+                         ? `${value.date}: ${value.count} min`
+                         : "No study",
+                    })}
+                />
+            </div>
+            </div>
+            </div>
         <div className="flex justify-end mb-6">
             <button
                 onClick={() => setShowModal(true)}
@@ -247,34 +277,10 @@ function Board({ user }) {
     </div>
     </div>
     </div>
+    </div>
+    </div>
 
-        <div className="overflow-x-auto">
-            <div className="mx-auto w-fit">
-        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
-                <h2 className="text-base font-semibold mb-4">
-                    Study Consistency
-                </h2>
-                <CalendarHeatmap
-                    startDate={new Date("2026-01-01")}
-                    endDate={new Date()}
-                    values={heatmapChartData}
-                    classForValue={(value) => {
-                        if (!value) return "color-empty";
-                        if (value.count < 60) return "color-scale-1";
-                        if (value.count < 120) return "color-scale-2";
-                        if (value.count < 240) return "color-scale-3";
-                        return "colour-scalr-4";
-                    }}
-                    tooltipDataAttrs={(value) => ({
-                        "data-tip":
-                        value?.date
-                         ? `${value.date}: ${value.count} min`
-                         : "No study",
-                    })}
-                />
-            </div>
-            </div>
-            </div>
+
         </div>
 
 
