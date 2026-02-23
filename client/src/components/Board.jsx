@@ -175,199 +175,200 @@ function Board({ user }) {
 
 
 
-            {user?.isPro ? (
-                <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8">
-                 <h2 className="text-base font-semibold mb-4 text-slate-800">
-                    Time by Subject
-                </h2>
+                    {user?.isPro ? (
+                        <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8">
+                        <h2 className="text-base font-semibold mb-4 text-slate-800">
+                            Time by Subject
+                        </h2>
 
-        {subjectChartData.length <= 1 ? (
-            <p className="text-sm text-slate-500">
-                Add more subjects to see a comparison.
-            </p>
+                        {subjectChartData.length <= 1 ? (
+                            <p className="text-sm text-slate-500">
+                                Add more subjects to see a comparison.
+                            </p>
+                    
+                            ) : (
+                            
+                            <ResponsiveContainer width="100%" height={220}>
+                                <BarChart data={subjectChartData} layout="vertical">
+                                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                                    <XAxis type="number" stroke="#64748b" />
+                                    <YAxis 
+                                        type="category"
+                                        dataKey="subject"
+                                        stroke="#64748b"
+                                    />
+                                    <Tooltip />
+                                    <Bar dataKey="minutes" fill="#3b82f6" />
+                                </BarChart>
+                            </ResponsiveContainer>
+                            )}
+                        </div>
+                            ) : (
+                                    
+                        <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8 text-center">
+                        <h2 className="text-base font-semibold mb-4 text-slate-800">
+                            Time by Subject
+                        </h2>
+                        <p className="text-slate-500 mb-3">
+                            🔒 Subject comparison is a Pro feature.
+                        </p>
+                        <button
+                            onClick={() => window.location.href = "/upgrade"}
+                            className="bg-blue-600 text-white px-4 py-2 rounded-md"
+                        >
+                            Upgrade to Pro
+                        </button>
+                    </div>
+
     
-            ) : (
-            
-            <ResponsiveContainer width="100%" height={220}>
-                <BarChart data={subjectChartData} layout="vertical">
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                    <XAxis type="number" stroke="#64748b" />
-                    <YAxis 
-                        type="category"
-                        dataKey="subject"
-                        stroke="#64748b"
-                    />
-                    <Tooltip />
-                    <Bar dataKey="minutes" fill="#3b82f6" />
-                </BarChart>
-            </ResponsiveContainer>
-            )}
-        </div>
-            ) : (
-                    <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8 text-center">
-        <h2 className="text-base font-semibold mb-4 text-slate-800">
-            Time by Subject
-        </h2>
-        <p className="text-slate-500 mb-3">
-            🔒 Subject comparison is a Pro feature.
-        </p>
-        <button
-            onClick={() => window.location.href = "/upgrade"}
-            className="bg-blue-600 text-white px-4 py-2 rounded-md"
-        >
-            Upgrade to Pro
-        </button>
-    </div>
-
-    
             )}
 
-        <div className="x;:col-span-1">
-            <div className="bg-white border border-slate-200 rounded-lg p-5 sticky top-6">
+                    <div className="x;:col-span-1">
+                        <div className="bg-white border border-slate-200 rounded-lg p-5 sticky top-6">
 
-                <h2 className="text-base font-semibold mb-4">
-                    Study Consistency
-                </h2>
+                            <h2 className="text-base font-semibold mb-4">
+                                Study Consistency
+                            </h2>
 
-                <div className="overflow=x=auto">
-                    <div className="mx-auto w-fit">
-                <CalendarHeatmap
-                    startDate={new Date("2026-01-01")}
-                    endDate={new Date()}
-                    values={heatmapChartData}
-                    classForValue={(value) => {
-                        if (!value) return "color-empty";
-                        if (value.count < 60) return "color-scale-1";
-                        if (value.count < 120) return "color-scale-2";
-                        if (value.count < 240) return "color-scale-3";
-                        return "colour-scalr-4";
-                    }}
-                    tooltipDataAttrs={(value) => ({
-                        "data-tip":
-                        value?.date
-                         ? `${value.date}: ${value.count} min`
-                         : "No study",
-                    })}
-                />
+                            <div className="overflow=x=auto">
+                                <div className="mx-auto w-fit">
+                            <CalendarHeatmap
+                                startDate={new Date("2026-01-01")}
+                                endDate={new Date()}
+                                values={heatmapChartData}
+                                classForValue={(value) => {
+                                    if (!value) return "color-empty";
+                                    if (value.count < 60) return "color-scale-1";
+                                    if (value.count < 120) return "color-scale-2";
+                                    if (value.count < 240) return "color-scale-3";
+                                    return "colour-scalr-4";
+                                }}
+                                tooltipDataAttrs={(value) => ({
+                                    "data-tip":
+                                    value?.date
+                                    ? `${value.date}: ${value.count} min`
+                                    : "No study",
+                                })}
+                            />
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                <div className="flex justify-end mb-6">
+                    <button
+                        onClick={() => setShowModal(true)}
+                        className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md text-sm font-medium transition"
+                        >
+                            + Add Session
+                    </button>
+                </div>
+                {sessions.length === 0 ? (
+                    <p>No sessions yet</p>
+                ) : (
+                    <div className="bg-white border border-slate-200 rounded-lg divide-y">
+                    {sessions.map((s) => (
+                    <div 
+                    key={s.id}
+                    className="px-5 py-3 flex justify-between text-sm">
+                        <div className="font-medium"><strong>{s.subject}</strong></div>
+                        <div className="text-slate-500">{s.duration} minutes • {new Date(s.session_date).toLocaleDateString()}
+
+                        </div>
+                    </div>
+                    ))}
+                </div>
+        )}
+            <div className="flex justify-end">
             </div>
             </div>
             </div>
             </div>
-        <div className="flex justify-end mb-6">
-            <button
-                onClick={() => setShowModal(true)}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md text-sm font-medium transition"
-                >
-                    + Add Session
-            </button>
-        </div>
-        {sessions.length === 0 ? (
-            <p>No sessions yet</p>
-        ) : (
-            <div className="bg-white border border-slate-200 rounded-lg divide-y">
-            {sessions.map((s) => (
-            <div 
-            key={s.id}
-            className="px-5 py-3 flex justify-between text-sm">
-                <div className="font-medium"><strong>{s.subject}</strong></div>
-                <div className="text-slate-500">{s.duration} minutes • {new Date(s.session_date).toLocaleDateString()}
+            </div>
+
 
                 </div>
-            </div>
-            ))}
+
+
+            {showModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+                <div className="bg-white rounded-lg w-full max-w-md p-6">
+                <h2 className="text-lg font-semibold mb-4">
+                    Add Study Session
+                </h2>
+
+                <form 
+                    onSubmit={(e) => {
+                        e.preventDefault();
+
+                        addSession({
+                            subject,
+                            duration: Number(duration),
+                            session_date: date,
+                        });
+
+                        setSubject("");
+                        setDuration("");
+                        setDate("");
+                        setShowModal(false);
+                    }}
+                    className="space-y-4"
+                    >
+                    {/* Subject */}
+                    <input
+                        type="text"
+                        placeholder="Subject (e.g. Math, React)"
+                        value={subject}
+                        onChange={(e) => setSubject(e.target.value)}
+                        required
+                        className="w-full border border-slate-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500"
+                    />
+
+                    {/* Duration */}
+                    <input
+                        type="number"
+                        placeholder="Duration (minutes)"
+                        value={duration}
+                        onChange={(e) => setDuration(e.target.value)}
+                        min="1"
+                        required
+                        className="w-full border border-slate-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500"
+                    />
+
+                    {/* Date */}
+                    <input
+                        type="date"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        required
+                        className="w-full border border-slate-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500"
+                    />
+
+                    {/* Actions */}
+                    <div className="flex justify-end gap-3 pt-2">
+                        <button
+                            type="button"
+                            onClick={() => setShowModal(false)}
+                            className="px-4 py-2 text-sm rounded-md border border-slate-300 hover:bg-slate-100"
+                        >
+                        Cancel
+                        </button>
+
+                        <button
+                            type="submit"
+                            className="px-4 py-2 text-sm rounded-md bg-blue-600 text-white hover:bg-blue-700"
+                        >
+                            Save
+                        </button>
+                    </div>
+                </form>
+                </div>
+                </div>
+            )}
         </div>
-)}
-    <div className="flex justify-end">
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+        );
+        }
 
-
-        </div>
-
-
-    {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-        <div className="bg-white rounded-lg w-full max-w-md p-6">
-        <h2 className="text-lg font-semibold mb-4">
-            Add Study Session
-        </h2>
-
-        <form 
-            onSubmit={(e) => {
-                e.preventDefault();
-
-                addSession({
-                    subject,
-                    duration: Number(duration),
-                    session_date: date,
-                });
-
-                setSubject("");
-                setDuration("");
-                setDate("");
-                setShowModal(false);
-            }}
-            className="space-y-4"
-            >
-            {/* Subject */}
-            <input
-                type="text"
-                placeholder="Subject (e.g. Math, React)"
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-                required
-                className="w-full border border-slate-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500"
-            />
-
-            {/* Duration */}
-            <input
-                type="number"
-                placeholder="Duration (minutes)"
-                value={duration}
-                onChange={(e) => setDuration(e.target.value)}
-                min="1"
-                required
-                className="w-full border border-slate-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500"
-            />
-
-            {/* Date */}
-            <input
-                type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                required
-                className="w-full border border-slate-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500"
-            />
-
-            {/* Actions */}
-            <div className="flex justify-end gap-3 pt-2">
-                <button
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                    className="px-4 py-2 text-sm rounded-md border border-slate-300 hover:bg-slate-100"
-                >
-                Cancel
-                </button>
-
-                <button
-                    type="submit"
-                    className="px-4 py-2 text-sm rounded-md bg-blue-600 text-white hover:bg-blue-700"
-                >
-                    Save
-                </button>
-            </div>
-        </form>
-        </div>
-        </div>
-    )}
-</div>
-);
-}
-
-export default Board;
+        export default Board;
 
 
 
