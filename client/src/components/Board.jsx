@@ -232,52 +232,53 @@ function Board({ user }) {
 
                             <div className="overflow=x=auto">
                                 <div className="mx-auto w-fit">
-                            <CalendarHeatmap
-                                startDate={new Date("2026-01-01")}
-                                endDate={new Date()}
-                                values={heatmapChartData}
-                                classForValue={(value) => {
-                                    if (!value) return "color-empty";
-                                    if (value.count < 60) return "color-scale-1";
-                                    if (value.count < 120) return "color-scale-2";
-                                    if (value.count < 240) return "color-scale-3";
+                                <CalendarHeatmap
+                                    startDate={new Date("2026-01-01")}
+                                    endDate={new Date()}
+                                    values={heatmapChartData}
+                                    classForValue={(value) => {
+                                        if (!value) return "color-empty";
+                                        if (value.count < 60) return "color-scale-1";
+                                        if (value.count < 120) return "color-scale-2";
+                                        if (value.count < 240) return "color-scale-3";
                                     return "colour-scalr-4";
                                 }}
-                                tooltipDataAttrs={(value) => ({
-                                    "data-tip":
-                                    value?.date
-                                    ? `${value.date}: ${value.count} min`
-                                    : "No study",
+                                    tooltipDataAttrs={(value) => ({
+                                        "data-tip":
+                                        value?.date
+                                        ? `${value.date}: ${value.count} min`
+                                        : "No study",
                                 })}
                             />
                         </div>
                         </div>
                         </div>
                         </div>
-                <div className="flex justify-end mb-6">
-                    <button
-                        onClick={() => setShowModal(true)}
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md text-sm font-medium transition"
-                        >
-                            + Add Session
-                    </button>
-                </div>
-                {sessions.length === 0 ? (
-                    <p>No sessions yet</p>
-                ) : (
-                    <div className="bg-white border border-slate-200 rounded-lg divide-y">
-                    {sessions.map((s) => (
-                    <div 
-                    key={s.id}
-                    className="px-5 py-3 flex justify-between text-sm">
-                        <div className="font-medium"><strong>{s.subject}</strong></div>
-                        <div className="text-slate-500">{s.duration} minutes • {new Date(s.session_date).toLocaleDateString()}
 
+                        <div className="flex justify-end mb-6">
+                            <button
+                                onClick={() => setShowModal(true)}
+                                className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md text-sm font-medium transition"
+                                >
+                                    + Add Session
+                            </button>
                         </div>
-                    </div>
-                    ))}
-                </div>
-        )}
+                        {sessions.length === 0 ? (
+                            <p>No sessions yet</p>
+                        ) : (
+                            <div className="bg-white border border-slate-200 rounded-lg divide-y">
+                            {sessions.map((s) => (
+                            <div 
+                            key={s.id}
+                            className="px-5 py-3 flex justify-between text-sm">
+                                <div className="font-medium"><strong>{s.subject}</strong></div>
+                                <div className="text-slate-500">{s.duration} minutes • {new Date(s.session_date).toLocaleDateString()}
+
+                                </div>
+                            </div>
+                            ))}
+                        </div>
+                )}
             <div className="flex justify-end">
             </div>
             </div>
