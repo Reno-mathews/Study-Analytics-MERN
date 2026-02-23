@@ -113,9 +113,9 @@ function Board({ user }) {
                                 strokeWidth={2}
                                 dot={false}
                             />
-                </LineChart>
-            </ResponsiveContainer>
-        </div>
+                            </LineChart>
+                            </ResponsiveContainer>
+                        </div>
 
         <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
             <h2 className="text-base font-semibold mb-4">Sessions Per Day</h2>
