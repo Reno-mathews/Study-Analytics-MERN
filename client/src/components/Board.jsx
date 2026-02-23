@@ -36,10 +36,10 @@ function Board({ user }) {
         heatmapChartData,
          } = useAnalyticsBoard();
 
-        const [subject, setSubject] = useState("");
-        const [duration, setDuration] = useState("");
-        const [date,setDate] = useState("");
-        const [showModal, setShowModal] = useState(false)
+    const [subject, setSubject] = useState("");
+    const [duration, setDuration] = useState("");
+    const [date,setDate] = useState("");
+    const [showModal, setShowModal] = useState(false)
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div className="text-red-500">{error}</div>;
