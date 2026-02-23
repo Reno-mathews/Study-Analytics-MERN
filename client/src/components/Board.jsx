@@ -96,23 +96,23 @@ function Board({ user }) {
                         </div>
 
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
-            <h2 className="text-base font-semibold mb-4">Daily Study Time</h2>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
+                            <h2 className="text-base font-semibold mb-4">Daily Study Time</h2>
 
-            <ResponsiveContainer width="100%" height={260}>
-                <LineChart data={dailyChartData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                    <XAxis dataKey="date" stroke="#64748b"/>
-                    <YAxis stroke="#64748b" />
-                    <Tooltip />
-                    <Line
-                        type="monotone"
-                        dataKey="minutes"
-                        stroke="#2563eb"
-                        strokeWidth={2}
-                        dot={false}
-                    />
+                            <ResponsiveContainer width="100%" height={260}>
+                            <LineChart data={dailyChartData}>
+                            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                            <XAxis dataKey="date" stroke="#64748b"/>
+                            <YAxis stroke="#64748b" />
+                            <Tooltip />
+                            <Line
+                                type="monotone"
+                                dataKey="minutes"
+                                stroke="#2563eb"
+                                strokeWidth={2}
+                                dot={false}
+                            />
                 </LineChart>
             </ResponsiveContainer>
         </div>
