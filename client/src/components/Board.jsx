@@ -235,12 +235,17 @@ function Board({ user }) {
                                 Study Consistency
                             </h2>
 
+                            const today = new Date();
+                            const start = new Date();
+                            start.setDate(today.getDate() - 90);
+
                             <div className="overflow-x-auto">
                                 <div className="mx-auto w-fit">
                                     <p>{heatmapChartData.length} entries</p>
                                 <CalendarHeatmap
-                                    startDate={new Date("2026-01-01")}
-                                    endDate={new Date()}
+                                    
+                                    startDate={start}
+                                    endDate={today}
                                     values={heatmapChartData}
                                     classForValue={(value) => {
                                         if (!value) return "color-empty";

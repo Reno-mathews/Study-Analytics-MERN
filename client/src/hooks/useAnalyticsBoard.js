@@ -173,6 +173,10 @@ export const useAnalyticsBoard = () => {
         ([date, count]) => ({ date, count })
     );
 
+    const today = new Date();
+    const start = new Date();
+    start.setDate(today.getDate() - 90);
+
     return {
         sessions,
         loading,
