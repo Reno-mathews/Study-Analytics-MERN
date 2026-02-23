@@ -287,7 +287,7 @@ function Board({ user }) {
             </div>
 
 
-                </div>
+            </div>
 
 
             {showModal && (
@@ -369,7 +369,7 @@ function Board({ user }) {
         );
         }
 
-        export default Board;
+export default Board;
 
 
 
