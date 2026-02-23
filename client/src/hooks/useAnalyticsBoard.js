@@ -192,5 +192,6 @@ export const useAnalyticsBoard = () => {
         currentStreak,
         longestStreak,
         heatmapChartData,
+        start,
     };
 };

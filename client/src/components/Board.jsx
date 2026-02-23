@@ -34,6 +34,7 @@ function Board({ user }) {
         currentStreak,
         longestStreak,
         heatmapChartData,
+        start,
          } = useAnalyticsBoard();
 
     const [subject, setSubject] = useState("");
@@ -235,9 +236,7 @@ function Board({ user }) {
                                 Study Consistency
                             </h2>
 
-                            const today = new Date();
-                            const start = new Date();
-                            start.setDate(today.getDate() - 90);
+
 
                             <div className="overflow-x-auto">
                                 <div className="mx-auto w-fit">
