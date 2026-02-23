@@ -47,10 +47,13 @@ function Board({ user }) {
     return (
     <div className="min-h-screen bg-slate-100 text-slate-900">
         <div className="max-w-7xl mx-auto px-6 py-6">
+                <h1 className="text-2xl font-bold mb-4">
+                    Study Analytics
+                </h1>
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-                <div className="p-6">
-                    <h1 className="text-2xl font-bold mb-4">Study Analytics</h1>
-                    <div className="xl:col-span-2">
+
+                    <div className="xl:col-span-2 space-y-6">
+
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                             <DashboardCard
                                 title="Total Study Time"
@@ -96,26 +99,26 @@ function Board({ user }) {
                         </div>
 
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
-                            <h2 className="text-base font-semibold mb-4">Daily Study Time</h2>
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
+                                <h2 className="text-base font-semibold mb-4">Daily Study Time</h2>
 
-                            <ResponsiveContainer width="100%" height={260}>
-                            <LineChart data={dailyChartData}>
-                            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                            <XAxis dataKey="date" stroke="#64748b"/>
-                            <YAxis stroke="#64748b" />
-                            <Tooltip />
-                            <Line
-                                type="monotone"
-                                dataKey="minutes"
-                                stroke="#2563eb"
-                                strokeWidth={2}
-                                dot={false}
-                            />
-                            </LineChart>
-                            </ResponsiveContainer>
-                        </div>
+                                <ResponsiveContainer width="100%" height={260}>
+                                <LineChart data={dailyChartData}>
+                                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                                <XAxis dataKey="date" stroke="#64748b"/>
+                                <YAxis stroke="#64748b" />
+                                <Tooltip />
+                                <Line
+                                    type="monotone"
+                                    dataKey="minutes"
+                                    stroke="#2563eb"
+                                    strokeWidth={2}
+                                    dot={false}
+                                />
+                                </LineChart>
+                                </ResponsiveContainer>
+                            </div>
 
                         <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
                             <h2 className="text-base font-semibold mb-4">Sessions Per Day</h2>
@@ -147,83 +150,83 @@ function Board({ user }) {
                                 fill="#c7d2fe"
                             />
                             </AreaChart>
-                        </ResponsiveContainer>
-                    </div>
+                            </ResponsiveContainer>
+                        </div>
 
-                    <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
-                        <h2 className="text-base font-semibold mb-4">Subject Distribution</h2>
+                        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
+                            <h2 className="text-base font-semibold mb-4">Subject Distribution</h2>
 
-                        <ResponsiveContainer width="100%" height={260}>
-                            <PieChart>
-                                <Pie    
-                                    data={subjectChartData}
-                                    dataKey="minutes"
-                                    nameKey="subject"
-                                    cx="50%"
-                                    cy="50%"
-                                    outerRadius={80}
-                                    fill="#8884d8"
-                                    label
-                                />
-                                <Tooltip />
-                                <Legend />
-                            </PieChart>
-                        </ResponsiveContainer>
-
-
-                    </div>
-
-
-
-                    {user?.isPro ? (
-                        <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8">
-                        <h2 className="text-base font-semibold mb-4 text-slate-800">
-                            Time by Subject
-                        </h2>
-
-                        {subjectChartData.length <= 1 ? (
-                            <p className="text-sm text-slate-500">
-                                Add more subjects to see a comparison.
-                            </p>
-                    
-                            ) : (
-                            
-                            <ResponsiveContainer width="100%" height={220}>
-                                <BarChart data={subjectChartData} layout="vertical">
-                                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                                    <XAxis type="number" stroke="#64748b" />
-                                    <YAxis 
-                                        type="category"
-                                        dataKey="subject"
-                                        stroke="#64748b"
+                            <ResponsiveContainer width="100%" height={260}>
+                                    <PieChart>
+                                    <Pie    
+                                        data={subjectChartData}
+                                        dataKey="minutes"
+                                        nameKey="subject"
+                                        cx="50%"
+                                        cy="50%"
+                                        outerRadius={80}
+                                        fill="#8884d8"
+                                        label
                                     />
                                     <Tooltip />
-                                    <Bar dataKey="minutes" fill="#3b82f6" />
-                                </BarChart>
+                                    <Legend />
+                                </PieChart>
                             </ResponsiveContainer>
-                            )}
+
+
                         </div>
-                            ) : (
-                                    
-                        <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8 text-center">
-                        <h2 className="text-base font-semibold mb-4 text-slate-800">
-                            Time by Subject
-                        </h2>
-                        <p className="text-slate-500 mb-3">
-                            🔒 Subject comparison is a Pro feature.
-                        </p>
-                        <button
-                            onClick={() => window.location.href = "/upgrade"}
-                            className="bg-blue-600 text-white px-4 py-2 rounded-md"
-                        >
-                            Upgrade to Pro
-                        </button>
-                    </div>
+
+
+
+                        {user?.isPro ? (
+                            <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8">
+                            <h2 className="text-base font-semibold mb-4 text-slate-800">
+                                Time by Subject
+                            </h2>
+
+                            {subjectChartData.length <= 1 ? (
+                                <p className="text-sm text-slate-500">
+                                    Add more subjects to see a comparison.
+                                </p>
+                        
+                                ) : (
+                                
+                                <ResponsiveContainer width="100%" height={220}>
+                                    <BarChart data={subjectChartData} layout="vertical">
+                                        <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                                        <XAxis type="number" stroke="#64748b" />
+                                        <YAxis 
+                                            type="category"
+                                            dataKey="subject"
+                                            stroke="#64748b"
+                                        />
+                                        <Tooltip />
+                                        <Bar dataKey="minutes" fill="#3b82f6" />
+                                    </BarChart>
+                                </ResponsiveContainer>
+                                )}
+                            </div>
+                                ) : (
+                                        
+                            <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8 text-center">
+                            <h2 className="text-base font-semibold mb-4 text-slate-800">
+                                Time by Subject
+                            </h2>
+                            <p className="text-slate-500 mb-3">
+                                🔒 Subject comparison is a Pro feature.
+                            </p>
+                            <button
+                                onClick={() => window.location.href = "/upgrade"}
+                                className="bg-blue-600 text-white px-4 py-2 rounded-md"
+                            >
+                                Upgrade to Pro
+                            </button>
+                        </div>
 
     
             )}
 
-                    <div className="x;:col-span-1">
+                    <div className="xl:col-span-1">
                         <div className="bg-white border border-slate-200 rounded-lg p-5 sticky top-6">
 
                             <h2 className="text-base font-semibold mb-4">
@@ -287,7 +290,7 @@ function Board({ user }) {
             </div>
 
 
-            </div>
+            
 
 
             {showModal && (
