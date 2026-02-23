@@ -225,7 +225,9 @@ function Board({ user }) {
 
     
             )}
-
+                    </div>
+                    </div>
+                    
                     <div className="xl:col-span-1">
                         <div className="bg-white border border-slate-200 rounded-lg p-5 sticky top-6">
 
@@ -233,8 +235,9 @@ function Board({ user }) {
                                 Study Consistency
                             </h2>
 
-                            <div className="overflow=x=auto">
+                            <div className="overflow-x-auto">
                                 <div className="mx-auto w-fit">
+                                    <p>{heatmapChartData.length} entries</p>
                                 <CalendarHeatmap
                                     startDate={new Date("2026-01-01")}
                                     endDate={new Date()}
@@ -244,7 +247,7 @@ function Board({ user }) {
                                         if (value.count < 60) return "color-scale-1";
                                         if (value.count < 120) return "color-scale-2";
                                         if (value.count < 240) return "color-scale-3";
-                                    return "colour-scalr-4";
+                                    return "color-scale-4";
                                 }}
                                     tooltipDataAttrs={(value) => ({
                                         "data-tip":
@@ -253,6 +256,7 @@ function Board({ user }) {
                                         : "No study",
                                 })}
                             />
+                    
                         </div>
                         </div>
                         </div>
@@ -286,8 +290,7 @@ function Board({ user }) {
             </div>
             </div>
             </div>
-            </div>
-            </div>
+        
 
 
             
