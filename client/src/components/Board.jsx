@@ -57,43 +57,43 @@ function Board({ user }) {
                                 value={`${totalMinutes} min`}
                             />
 
-            <DashboardCard
-                title="Sessions"
-                value={sessionCount}
-            />
+                            <DashboardCard
+                                title="Sessions"
+                                value={sessionCount}
+                            />
 
-            {user?.isPro ? (
-              <>  
-                <DashboardCard
-                    title="Avg / Session"
-                    value={`${averageMinutes} min`}
-                />
+                            {user?.isPro ? (
+                            <>  
+                            <DashboardCard
+                                title="Avg / Session"
+                                value={`${averageMinutes} min`}
+                            />
 
-                <DashboardCard
-                    title="Top Subject"
-                    value={mostStudiedSubject}
-                />
+                            <DashboardCard
+                                title="Top Subject"
+                                value={mostStudiedSubject}
+                            />
 
-                <DashboardCard
-                    title="Current Streak"
-                    value={`${currentStreak} days 🔥`}
-                />
+                            <DashboardCard
+                                title="Current Streak"
+                                value={`${currentStreak} days 🔥`}
+                            />
 
-                <DashboardCard
-                    title="Longest Streak"
-                    value={`${longestStreak} days ⭐`}
-                />
-            </>
-            ) : (
-                <>
-                    <DashboardCard
-                        title="Avg / Session"
-                        value="🔒 Pro"
-                    />
-                </>
+                            <DashboardCard
+                                title="Longest Streak"
+                                value={`${longestStreak} days ⭐`}
+                            />
+                            </>
+                            ) : (
+                            <>
+                            <DashboardCard
+                                title="Avg / Session"
+                                value="🔒 Pro"
+                            />
+                            </>
                 
-            )}
-        </div>
+                            )}
+                        </div>
 
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
