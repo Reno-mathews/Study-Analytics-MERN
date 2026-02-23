@@ -117,61 +117,61 @@ function Board({ user }) {
                             </ResponsiveContainer>
                         </div>
 
-        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
-            <h2 className="text-base font-semibold mb-4">Sessions Per Day</h2>
+                        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
+                            <h2 className="text-base font-semibold mb-4">Sessions Per Day</h2>
 
-            <ResponsiveContainer width="100%" height={260}>
-                <BarChart data={dailyChartData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                    <XAxis dataKey="date" stroke="#64748b" />
-                    <YAxis stroke="#64748b" />
-                    <Tooltip />
-                    <Bar dataKey="sessions" fill="#10b981" />
-                </BarChart>
-            </ResponsiveContainer>
-        </div>
+                                <ResponsiveContainer width="100%" height={260}>
+                                <BarChart data={dailyChartData}>
+                                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                                <XAxis dataKey="date" stroke="#64748b" />
+                                <YAxis stroke="#64748b" />
+                                <Tooltip />
+                                <Bar dataKey="sessions" fill="#10b981" />
+                                </BarChart>
+                                </ResponsiveContainer>
+                        </div>
 
-        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
-            <h2 className="text-base font-semibold mb-4">Cumulative Study Time </h2>
+                        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
+                            <h2 className="text-base font-semibold mb-4">Cumulative Study Time </h2>
 
-            <ResponsiveContainer width="100%" height={260}>
-                <AreaChart data={cumulativeChartData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                <XAxis dataKey="date" stroke="#64748b" />
-                <YAxis stroke="#64748b" />
-                <Tooltip />
-                <Area 
-                    type="monotone"
-                    dataKey="cumulativeMinutes"
-                    stroke="#6366f1"
-                    fill="#c7d2fe"
-                />
-                </AreaChart>
-            </ResponsiveContainer>
-        </div>
+                            <ResponsiveContainer width="100%" height={260}>
+                            <AreaChart data={cumulativeChartData}>
+                            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                            <XAxis dataKey="date" stroke="#64748b" />
+                            <YAxis stroke="#64748b" />
+                            <Tooltip />
+                            <Area 
+                                type="monotone"
+                                dataKey="cumulativeMinutes"
+                                stroke="#6366f1"
+                                fill="#c7d2fe"
+                            />
+                            </AreaChart>
+                        </ResponsiveContainer>
+                    </div>
 
-        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
-            <h2 className="text-base font-semibold mb-4">Subject Distribution</h2>
+                    <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
+                        <h2 className="text-base font-semibold mb-4">Subject Distribution</h2>
 
-            <ResponsiveContainer width="100%" height={260}>
-                <PieChart>
-                    <Pie    
-                        data={subjectChartData}
-                        dataKey="minutes"
-                        nameKey="subject"
-                        cx="50%"
-                        cy="50%"
-                        outerRadius={80}
-                        fill="#8884d8"
-                        label
-                    />
-                    <Tooltip />
-                    <Legend />
-                </PieChart>
-            </ResponsiveContainer>
+                        <ResponsiveContainer width="100%" height={260}>
+                            <PieChart>
+                                <Pie    
+                                    data={subjectChartData}
+                                    dataKey="minutes"
+                                    nameKey="subject"
+                                    cx="50%"
+                                    cy="50%"
+                                    outerRadius={80}
+                                    fill="#8884d8"
+                                    label
+                                />
+                                <Tooltip />
+                                <Legend />
+                            </PieChart>
+                        </ResponsiveContainer>
 
 
-        </div>
+                    </div>
 
 
 
