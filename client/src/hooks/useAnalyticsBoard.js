@@ -161,9 +161,14 @@ export const useAnalyticsBoard = () => {
     longestStreak = Math.max(longestStreak, tempStreak);
 
     const heatmapData = sessions.reduce((acc, session) => {
-        const date = new Date(session.session_date)
-        .toISOString()
-        .slice(0, 10);
+        const d = new Date(session.session_date);
+
+        const date =
+            d.getFullYear() +
+            "-" +
+            String(d.getMonth() + 1).padStart(2, "0") +
+            "-" +
+            String(d.getDate()).padStart(2, "0");
 
         acc[date] = (acc[date] || 0) + session.duration;
         return acc;
