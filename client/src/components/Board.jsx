@@ -54,9 +54,9 @@ function Board({ user }) {
                 <h1 className="text-2xl font-bold mb-4">
                     Study Analytics
                 </h1>
-            <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+            {/*<div className="grid grid-cols-1 xl:grid-cols-3 gap-6">*/}
 
-                    <div className="xl:col-span-2 space-y-6">
+                    {/*<div className="xl:col-span-2 space-y-6">*/}
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                             <DashboardCard
@@ -178,7 +178,7 @@ function Board({ user }) {
                                 </ResponsiveContainer>
 
 
-                            </div>
+                            
 
 
 
@@ -229,11 +229,12 @@ function Board({ user }) {
 
     
             )}
-                    </div>
+                    
                     </div>
                     
                     
-                    <div className="xl:col-span-1">
+                   {/* <div className="xl:col-span-1"> */}
+                        <div className="pd-6 mb-6" >
                         <div className="bg-white border border-slate-200 rounded-lg p-5 sticky top-6">
 
                             <h2 className="text-base font-semibold mb-4">
@@ -265,10 +266,11 @@ function Board({ user }) {
                     
                         
                         
-                        </div>
-                        </div>
-                        </div>
                         
+                        </div>
+                        </div>
+                        </div>
+                        </div>
 
                         <div className="flex justify-end mb-6">
                             <button
@@ -295,11 +297,11 @@ function Board({ user }) {
                             ))}
                         </div>
                 )}
-            <div className="flex justify-end">
+            
+        
             </div>
             </div>
-            </div>
-            </div>
+            
         
             {showModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">

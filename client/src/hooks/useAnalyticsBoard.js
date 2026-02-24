@@ -180,7 +180,7 @@ export const useAnalyticsBoard = () => {
 
     const today = new Date();
     const start = new Date();
-    start.setDate(today.getDate() - 90);
+    start.setDate(today.getDate() - 30);
 
     return {
         sessions,
