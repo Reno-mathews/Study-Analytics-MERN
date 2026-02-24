@@ -242,7 +242,7 @@ function Board({ user }) {
                             </h2>
 
                             <div className="overflow-x-auto">
-                                <div className="mx-auto w-fit">
+                                <div className="mx-auto w-full overflow-x-auto">
                                     <p>console.log({5})</p>
                                 <CalendarHeatmap
                                     className="react-calendar-heatmap"
