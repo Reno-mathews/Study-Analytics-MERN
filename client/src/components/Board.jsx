@@ -241,8 +241,8 @@ function Board({ user }) {
                                     
                                 <CalendarHeatmap
                                     
-                                    startDate={start}
-                                    endDate={today}
+                                    startDate={new Date("2026-01-01")}
+                                    endDate={new Date("2026-12-31")}
                                     values={heatmapChartData}
                                     classForValue={(value) => {
                                         if (!value) return "color-empty";
