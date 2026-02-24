@@ -241,9 +241,9 @@ function Board({ user }) {
                                 <div className="mx-auto w-fit">
                                     
                                 <CalendarHeatmap
-                                    
-                                    startDate={new Date("2026-01-01")}
-                                    endDate={new Date("2026-12-31")}
+                                    className="react-calendar-heatmap"
+                                    startDate={start}
+                                    endDate={today}
                                     values={heatmapChartData}
                                     classForValue={(value) => {
                                         if (!value) return "color-empty";
