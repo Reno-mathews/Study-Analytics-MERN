@@ -17,6 +17,7 @@ import DashboardCard from "../components/DashboardCard";
 import CalendarHeatmap from "react-calendar-heatmap";
 import "react-calendar-heatmap/dist/styles.css";
 
+
 function Board({ user }) {
     const { 
         sessions,
