@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+.react-calendar-heatmap .react-calendar-heatmap rect {
+    width: 16px;
+    height: 16px;
+    rx: 3;
+    ry: 3;
+}

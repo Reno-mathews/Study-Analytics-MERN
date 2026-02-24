@@ -5,7 +5,7 @@ export const useAnalyticsBoard = () => {
     const [sessions, setSessions] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-;
+
 
     useEffect(() => {
         const loadSessions = async () => {
@@ -136,7 +136,7 @@ export const useAnalyticsBoard = () => {
                 (new Date(studyDates[i + 1]) - new Date(studyDates[i])) /
                 86400000;
 
-            if (dif === 1) currentStreak++;
+            if (diff === 1) currentStreak++;
             else break;
             }
         }
@@ -193,5 +193,6 @@ export const useAnalyticsBoard = () => {
         longestStreak,
         heatmapChartData,
         start,
+        today,
     };
 };

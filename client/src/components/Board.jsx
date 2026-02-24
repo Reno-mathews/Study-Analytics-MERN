@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useContext } from "react";
 
 import { useAnalyticsBoard } from "../hooks/useAnalyticsBoard";
 import {
@@ -35,6 +34,7 @@ function Board({ user }) {
         longestStreak,
         heatmapChartData,
         start,
+        today
          } = useAnalyticsBoard();
 
     const [subject, setSubject] = useState("");
@@ -236,11 +236,9 @@ function Board({ user }) {
                                 Study Consistency
                             </h2>
 
-
-
                             <div className="overflow-x-auto">
                                 <div className="mx-auto w-fit">
-                                    <p>{heatmapChartData.length} entries</p>
+                                    
                                 <CalendarHeatmap
                                     
                                     startDate={start}
@@ -274,6 +272,7 @@ function Board({ user }) {
                                     + Add Session
                             </button>
                         </div>
+
                         {sessions.length === 0 ? (
                             <p>No sessions yet</p>
                         ) : (
@@ -295,11 +294,6 @@ function Board({ user }) {
             </div>
             </div>
         
-
-
-            
-
-
             {showModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
                 <div className="bg-white rounded-lg w-full max-w-md p-6">
