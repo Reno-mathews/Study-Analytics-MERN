@@ -44,8 +44,10 @@ function Board({ user }) {
     const [showModal, setShowModal] = useState(false)
 
     if (loading) return <div>Loading...</div>;
-    if (error) return <div className="text-red-500">{error}</div>;
-                                             console.log(heatmapChartData);
+    if (error) return <div className="text-red-500">{error}</div>; 
+    
+    console.log(heatmapChartData);
+
     return (
     <div className="min-h-screen bg-slate-100 text-slate-900">
         <div className="max-w-7xl mx-auto px-6 py-6">
@@ -122,113 +124,114 @@ function Board({ user }) {
                                 </ResponsiveContainer>
                             </div>
 
-                        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
-                            <h2 className="text-base font-semibold mb-4">Sessions Per Day</h2>
+                            <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
+                                <h2 className="text-base font-semibold mb-4">Sessions Per Day</h2>
+
+                                    <ResponsiveContainer width="100%" height={260}>
+                                    <BarChart data={dailyChartData}>
+                                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                                    <XAxis dataKey="date" stroke="#64748b" />
+                                    <YAxis stroke="#64748b" />
+                                    <Tooltip />
+                                    <Bar dataKey="sessions" fill="#10b981" />
+                                    </BarChart>
+                                    </ResponsiveContainer>
+                            </div>
+
+                            <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
+                                <h2 className="text-base font-semibold mb-4">Cumulative Study Time </h2>
 
                                 <ResponsiveContainer width="100%" height={260}>
-                                <BarChart data={dailyChartData}>
+                                <AreaChart data={cumulativeChartData}>
                                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                                 <XAxis dataKey="date" stroke="#64748b" />
                                 <YAxis stroke="#64748b" />
                                 <Tooltip />
-                                <Bar dataKey="sessions" fill="#10b981" />
-                                </BarChart>
+                                <Area 
+                                    type="monotone"
+                                    dataKey="cumulativeMinutes"
+                                    stroke="#6366f1"
+                                    fill="#c7d2fe"
+                                />
+                                </AreaChart>
                                 </ResponsiveContainer>
-                        </div>
+                            </div>
 
-                        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
-                            <h2 className="text-base font-semibold mb-4">Cumulative Study Time </h2>
+                            <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
+                                <h2 className="text-base font-semibold mb-4">Subject Distribution</h2>
 
-                            <ResponsiveContainer width="100%" height={260}>
-                            <AreaChart data={cumulativeChartData}>
-                            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                            <XAxis dataKey="date" stroke="#64748b" />
-                            <YAxis stroke="#64748b" />
-                            <Tooltip />
-                            <Area 
-                                type="monotone"
-                                dataKey="cumulativeMinutes"
-                                stroke="#6366f1"
-                                fill="#c7d2fe"
-                            />
-                            </AreaChart>
-                            </ResponsiveContainer>
-                        </div>
-
-                        <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
-                            <h2 className="text-base font-semibold mb-4">Subject Distribution</h2>
-
-                            <ResponsiveContainer width="100%" height={260}>
-                                    <PieChart>
-                                    <Pie    
-                                        data={subjectChartData}
-                                        dataKey="minutes"
-                                        nameKey="subject"
-                                        cx="50%"
-                                        cy="50%"
-                                        outerRadius={80}
-                                        fill="#8884d8"
-                                        label
-                                    />
-                                    <Tooltip />
-                                    <Legend />
-                                </PieChart>
-                            </ResponsiveContainer>
-
-
-                        </div>
-
-
-
-                        {user?.isPro ? (
-                            <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8">
-                            <h2 className="text-base font-semibold mb-4 text-slate-800">
-                                Time by Subject
-                            </h2>
-
-                            {subjectChartData.length <= 1 ? (
-                                <p className="text-sm text-slate-500">
-                                    Add more subjects to see a comparison.
-                                </p>
-                        
-                                ) : (
-                                
-                                <ResponsiveContainer width="100%" height={220}>
-                                    <BarChart data={subjectChartData} layout="vertical">
-                                        <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                                        <XAxis type="number" stroke="#64748b" />
-                                        <YAxis 
-                                            type="category"
-                                            dataKey="subject"
-                                            stroke="#64748b"
+                                <ResponsiveContainer width="100%" height={260}>
+                                        <PieChart>
+                                        <Pie    
+                                            data={subjectChartData}
+                                            dataKey="minutes"
+                                            nameKey="subject"
+                                            cx="50%"
+                                            cy="50%"
+                                            outerRadius={80}
+                                            fill="#8884d8"
+                                            label
                                         />
                                         <Tooltip />
-                                        <Bar dataKey="minutes" fill="#3b82f6" />
-                                    </BarChart>
+                                        <Legend />
+                                    </PieChart>
                                 </ResponsiveContainer>
-                                )}
+
+
                             </div>
-                                ) : (
-                                        
-                            <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8 text-center">
-                            <h2 className="text-base font-semibold mb-4 text-slate-800">
-                                Time by Subject
-                            </h2>
-                            <p className="text-slate-500 mb-3">
-                                🔒 Subject comparison is a Pro feature.
-                            </p>
-                            <button
-                                onClick={() => window.location.href = "/upgrade"}
-                                className="bg-blue-600 text-white px-4 py-2 rounded-md"
-                            >
-                                Upgrade to Pro
-                            </button>
-                        </div>
+
+
+
+                            {user?.isPro ? (
+                                <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8">
+                                    <h2 className="text-base font-semibold mb-4 text-slate-800">
+                                        Time by Subject
+                                    </h2>
+
+                                {subjectChartData.length <= 1 ? (
+                                    <p className="text-sm text-slate-500">
+                                        Add more subjects to see a comparison.
+                                    </p>
+                            
+                                    ) : (
+                                    
+                                    <ResponsiveContainer width="100%" height={220}>
+                                        <BarChart data={subjectChartData} layout="vertical">
+                                            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                                            <XAxis type="number" stroke="#64748b" />
+                                            <YAxis 
+                                                type="category"
+                                                dataKey="subject"
+                                                stroke="#64748b"
+                                            />
+                                            <Tooltip />
+                                            <Bar dataKey="minutes" fill="#3b82f6" />
+                                        </BarChart>
+                                    </ResponsiveContainer>
+                                    )}
+                                </div>
+                                    ) : (
+                                            
+                                <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8 text-center">
+                                <h2 className="text-base font-semibold mb-4 text-slate-800">
+                                    Time by Subject
+                                </h2>
+                                <p className="text-slate-500 mb-3">
+                                    🔒 Subject comparison is a Pro feature.
+                                </p>
+                                <button
+                                    onClick={() => window.location.href = "/upgrade"}
+                                    className="bg-blue-600 text-white px-4 py-2 rounded-md"
+                                >
+                                    Upgrade to Pro
+                                </button>
+                            </div>
 
     
             )}
                     </div>
                     </div>
+                    
                     
                     <div className="xl:col-span-1">
                         <div className="bg-white border border-slate-200 rounded-lg p-5 sticky top-6">
@@ -260,10 +263,12 @@ function Board({ user }) {
                                 })}
                             />
                     
+                        
+                        
                         </div>
                         </div>
                         </div>
-                        </div>
+                        
 
                         <div className="flex justify-end mb-6">
                             <button
@@ -291,6 +296,7 @@ function Board({ user }) {
                         </div>
                 )}
             <div className="flex justify-end">
+            </div>
             </div>
             </div>
             </div>
