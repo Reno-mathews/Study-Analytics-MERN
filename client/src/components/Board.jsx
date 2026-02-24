@@ -242,8 +242,8 @@ function Board({ user }) {
                             </h2>
 
                             <div className="overflow-x-auto">
-                                <div className="mx-auto w-full overflow-x-auto">
-                                    <p>console.log({5})</p>
+                                <div className="mx-auto w-full">
+                                
                                 <CalendarHeatmap
                                     className="react-calendar-heatmap"
                                     startDate={start}
