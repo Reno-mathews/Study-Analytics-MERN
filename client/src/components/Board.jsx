@@ -55,6 +55,7 @@ function Board({ user }) {
                 {/* ===== MAIN GRID ===== */}
                 <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
 
+                    {/* ===== LEFT SIDE (2 COLUMNS) ===== */}
                     <div className="xl:col-span-2 space-y-6">
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
