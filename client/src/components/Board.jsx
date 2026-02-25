@@ -56,7 +56,7 @@ function Board({ user }) {
                 </h1>
             {/*<div className="grid grid-cols-1 xl:grid-cols-3 gap-6">*/}
 
-                    {/*<div className="xl:col-span-2 space-y-6">*/}
+                    <div className="xl:col-span-2 space-y-6">
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                             <DashboardCard
@@ -231,7 +231,7 @@ function Board({ user }) {
             )}
                     
                     </div>
-                    
+                    </div>
                     
                    {/* <div className="xl:col-span-1"> */}
                             <div className="bg-white border border-slate-200 rounded-lg p-5">
