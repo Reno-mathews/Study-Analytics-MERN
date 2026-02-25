@@ -59,7 +59,7 @@ function Board({ user }) {
                     <div className="xl:col-span-2 space-y-6">
                     
                         {/* Dashboard cards */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
                             <DashboardCard
                                 title="Total Study Time"
                                 value={`${totalMinutes} min`}
