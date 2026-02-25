@@ -54,7 +54,7 @@ function Board({ user }) {
                 <h1 className="text-2xl font-bold mb-4">
                     Study Analytics
                 </h1>
-            {/*<div className="grid grid-cols-1 xl:grid-cols-3 gap-6">*/}
+            <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
 
                     <div className="xl:col-span-2 space-y-6">
 
@@ -228,7 +228,7 @@ function Board({ user }) {
                             </div>
 
     
-            )}
+                )}
                     
                     </div>
                     </div>
@@ -263,6 +263,7 @@ function Board({ user }) {
                         
                         
                         
+                        </div>
                         </div>
                         </div>
                         </div>
