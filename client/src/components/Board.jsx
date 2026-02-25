@@ -234,24 +234,24 @@ function Board({ user }) {
                     
                     
                    {/* <div className="xl:col-span-1"> */}
-<div className="bg-white border border-slate-200 rounded-lg p-5">
-  <h2 className="text-base font-semibold mb-4">
-    Study Consistency
-  </h2>
+                            <div className="bg-white border border-slate-200 rounded-lg p-5">
+                            <h2 className="text-base font-semibold mb-4">
+                                Study Consistency
+                            </h2>
 
-  <div className="overflow-x-auto">
-    <div className="min-w-[700px]">
-      <CalendarHeatmap
-        startDate={start}
-        endDate={today}
-        values={heatmapChartData}
-        classForValue={(value) => {
-          if (!value) return "color-empty";
-          if (value.count < 60) return "color-scale-1";
-          if (value.count < 120) return "color-scale-2";
-          if (value.count < 240) return "color-scale-3";
-          return "color-scale-4";
-        }}
+                            <div className="overflow-x-auto">
+                                <div className="min-w-[700px]">
+                                <CalendarHeatmap
+                                    startDate={start}
+                                    endDate={today}
+                                    values={heatmapChartData}
+                                    classForValue={(value) => {
+                                    if (!value) return "color-empty";
+                                    if (value.count < 60) return "color-scale-1";
+                                    if (value.count < 120) return "color-scale-2";
+                                    if (value.count < 240) return "color-scale-3";
+                                    return "color-scale-4";
+                                    }}
                                     tooltipDataAttrs={(value) => ({
                                         "data-tip":
                                         value?.date
