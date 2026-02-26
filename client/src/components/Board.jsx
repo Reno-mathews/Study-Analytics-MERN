@@ -65,27 +65,12 @@ function Board({ user }) {
 
                             {user?.isPro ? (
                             <>  
-                            <DashboardCard
-                                title="Avg / Session"
-                                value={`${averageMinutes} min`}
-                            />
-
-                            <DashboardCard
-                                title="Top Subject"
-                                value={mostStudiedSubject}
-                            />
-
-                            <DashboardCard
-                                title="Current Streak"
-                                value={`${currentStreak} days 🔥`}
-                            />
-
-                            <DashboardCard
-                                title="Longest Streak"
-                                value={`${longestStreak} days ⭐`}
-                            />
-                            </>
-                            ) : (
+                            <DashboardCard title="Avg / Session" value={`${averageMinutes} min`} />
+                            <DashboardCard title="Top Subject" value={mostStudiedSubject} />
+                            <DashboardCard title="Current Streak" value={`${currentStreak} days 🔥`} />
+                            <DashboardCard title="Longest Streak" value={`${longestStreak} days ⭐`} />
+                        </>
+                    ) : (
                             <>
                             <DashboardCard
                                 title="Avg / Session"
