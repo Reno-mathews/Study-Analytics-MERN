@@ -211,7 +211,6 @@ function Board({ user }) {
                                 </button>
                             </div>
 
-    
                 )}
                     
                     </div>
