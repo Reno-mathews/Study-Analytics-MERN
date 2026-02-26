@@ -163,7 +163,7 @@ function Board({ user }) {
 
                                 </div>
                             
-                            
+
 
                             {user?.isPro ? (
                                 <div className="bg-white border border-slate-200 rounded-lg p-6 mb-8">
@@ -360,3 +360,7 @@ function Board({ user }) {
         }
 
 export default Board;
+
+
+
+
