@@ -119,11 +119,8 @@ function Board({ user }) {
                                     </BarChart>
                                     </ResponsiveContainer>
                             </div>
-                            </div>
-                            </div>
+                
 
-                            {/* ===== RIGHT SIDE (Heatmap column) ===== */}
-                            <div className="xl"
 
                             <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
                                 <h2 className="text-base font-semibold mb-4">Cumulative Study Time </h2>
