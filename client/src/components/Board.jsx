@@ -60,10 +60,7 @@ function Board({ user }) {
                     
                         {/* Dashboard cards */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
-                            <DashboardCard
-                                title="Total Study Time"
-                                value={`${totalMinutes} min`}
-                            />
+                            <DashboardCard title="Total Study Time" value={`${totalMinutes} min`} />
 
                             <DashboardCard
                                 title="Sessions"
@@ -103,9 +100,10 @@ function Board({ user }) {
                             )}
                         </div>
 
-
+                        {/* Charts */}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
+                            
+                            {/* Daily Study Time */}
                             <div className="bg-white border border-slate-200 rounded-lg p-5 mb-8">
                                 <h2 className="text-base font-semibold mb-4">Daily Study Time</h2>
 
