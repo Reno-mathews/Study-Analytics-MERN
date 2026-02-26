@@ -161,7 +161,7 @@ function Board({ user }) {
                                     </PieChart>
                                 </ResponsiveContainer>
 
-
+                                </div>
                             
 
 
