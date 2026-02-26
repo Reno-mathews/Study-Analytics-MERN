@@ -282,7 +282,7 @@ function Board({ user }) {
             
         
             </div>
-            </div>
+            
             
         
             {showModal && (
