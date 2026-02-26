@@ -245,8 +245,7 @@ function Board({ user }) {
                             />
                     
                         
-                        
-                        
+                
                         </div>
                         </div>
                         </div>
