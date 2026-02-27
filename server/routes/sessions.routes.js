@@ -9,7 +9,7 @@ const {
 } = require("../controllers/sessions.controller");
 
 router.get("/", auth, getSessions);
-router.post("/", auth, requirePro, createSession);
+router.post("/", auth, createSession);
 
 module.exports = router;
 
