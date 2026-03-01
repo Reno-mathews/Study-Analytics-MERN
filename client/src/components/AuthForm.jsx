@@ -9,7 +9,7 @@ function AuthForm ({
     onSignUp,
 }) {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to slate-900 px-4">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-4">
             <div className="w-full max-w-md bg-white/95 backdrop-blur-md p-8 rounded-2xl border border-slate-200 shadow-lg">
 
             {/* Title */}
