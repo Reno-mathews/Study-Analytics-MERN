@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000";
+const API_URL = "https://study-analytics-mern.onrender.com/";
 
 const getAuthHeader = () => {
     const token = localStorage.getItem("token");
