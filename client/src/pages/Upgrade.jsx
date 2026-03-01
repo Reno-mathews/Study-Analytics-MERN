@@ -4,7 +4,7 @@ function Upgrade() {
         const token = localStorage.getItem("token");
 
         const res = await fetch(
-            "http://localhost:5000/billing/create-checkout-session",
+            "https://study-analytics-mern.onrender.com/billing/create-checkout-session",
             {
                 method: "POST",
                 headers: {
