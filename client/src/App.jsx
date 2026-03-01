@@ -84,7 +84,6 @@ function App() {
     <Routes>
       <Route path="/" element={<Board user={user} />} />
       <Route path="/upgrade" element={<Upgrade />} />
-
       <Route path="/upgrade-success" element={<UpgradeSuccess />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
