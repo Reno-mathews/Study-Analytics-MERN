@@ -1,6 +1,6 @@
 import { jwtDecode } from "jwt-decode";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://study-analytics-mern.onrender.com/";
 
 const login = async(email, password) => {
     const res = await fetch(`${API_URL}/login`, {
