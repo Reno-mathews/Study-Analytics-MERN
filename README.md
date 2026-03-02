@@ -134,7 +134,7 @@ Pro access enforcement
 
 🔧 Installation (Local Setup)
 1. Clone repository
-git clone https://github.com/YOUR_USERNAME/study-analytics.git
+git clone https://github.com/Reno-mathews/study-analytics.git
 cd study-analytics
 2. Backend setup
 cd server
